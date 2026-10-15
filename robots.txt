@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://phraortes.github.io/sitemap.xml
