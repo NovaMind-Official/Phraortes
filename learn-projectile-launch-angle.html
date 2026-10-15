@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Is 45° really the best launch angle? — Phraortes</title>
+<meta name="description" content="Why 45 degrees maximises range on level ground, why it is not best when you launch from a height, with worked numbers and a live projectile simulation.">
+<link rel="canonical" href="https://phraortes.github.io/learn-projectile-launch-angle.html">
+<meta name="theme-color" content="#f3eee4">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Phraortes">
+<meta property="og:title" content="Is 45° really the best launch angle? — Phraortes">
+<meta property="og:description" content="Why 45 degrees maximises range on level ground, why it is not best when you launch from a height, with worked numbers and a live projectile simulation.">
+<meta property="og:url" content="https://phraortes.github.io/learn-projectile-launch-angle.html">
+<meta property="og:image" content="https://novamind-official.github.io/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="https://novamind-official.github.io/icon-192.png">
+<link rel="apple-touch-icon" href="https://novamind-official.github.io/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Is 45\u00b0 really the best launch angle?","description":"Why 45 degrees maximises range on level ground, why it is not best when you launch from a height, with worked numbers and a live projectile simulation.","mainEntityOfPage":"https://phraortes.github.io/learn-projectile-launch-angle.html","publisher":{"@type":"Organization","name":"Phraortes"}}</script>
+<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="26" height="26">Phraortes</a>
+  <nav class="links" aria-label="Main">
+    <a href="how-it-works.html">How it works</a><a href="features.html">Features</a><span style="position:relative"><button id="megabtn" aria-expanded="false" aria-controls="mega">Tools <svg viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></button></span>
+    <a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html" class="cur">Learn</a>
+  </nav>
+  <span class="sp"></span>
+  <a class="btn ink sm" href="https://novamind-official.github.io/">Try it free</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i></button>
+</header>
+<div class="mega" id="mega"><a class="mi" style="background:var(--cream2)" href="tools.html#solve"><small>01</small><b>Solve</b><span>Step-by-step solutions</span></a><a class="mi" style="background:var(--sky)" href="tools.html#graphs"><small>02</small><b>Graphs</b><span>Interactive plots</span></a><a class="mi" style="background:var(--lilac)" href="tools.html#molecules"><small>03</small><b>Molecules</b><span>3D chemistry</span></a><a class="mi" style="background:var(--mint)" href="tools.html#elements"><small>04</small><b>Elements</b><span>All 118, one touch</span></a><a class="mi" style="background:var(--sand)" href="tools.html#simulate"><small>05</small><b>Simulate</b><span>Circuits and motion</span></a><a class="mi" style="background:var(--cream2)" href="tools.html#code"><small>06</small><b>Code</b><span>Run it in the chat</span></a><a class="mi" style="background:var(--lilac)" href="tools.html#stats"><small>07</small><b>Statistics</b><span>Data, plots, regression</span></a><a class="mi" style="background:var(--sky)" href="tools.html#live"><small>08</small><b>Live steps</b><span>Watch it work</span></a><a class="mi" style="background:var(--cream2)" href="tools.html#tools"><small>09</small><b>Look-ups</b><span>Search, files, voice</span></a><a class="mi" style="background:var(--ink);color:var(--cream);grid-column:1/-1;min-height:84px;flex-direction:row;align-items:center;gap:14px" href="tools.html"><b style="margin:0">See all tools</b><span style="margin:0 0 0 auto">→</span></a></div>
+<div class="menu" id="menu">
+  <div class="grp">Explore</div><a href="how-it-works.html"><small>→</small>How it works</a><a href="features.html"><small>→</small>Features</a><a href="tools.html"><small>→</small>All tools</a><a href="compare.html"><small>→</small>Compare</a><a href="pricing.html"><small>→</small>Pricing</a><a href="learn.html"><small>→</small>Learn</a>
+  <div class="grp">Jump to a tool</div><a class="sub" href="tools.html#solve"><small>01</small>Solve</a><a class="sub" href="tools.html#graphs"><small>02</small>Graphs</a><a class="sub" href="tools.html#molecules"><small>03</small>Molecules</a><a class="sub" href="tools.html#elements"><small>04</small>Elements</a><a class="sub" href="tools.html#simulate"><small>05</small>Simulate</a><a class="sub" href="tools.html#code"><small>06</small>Code</a><a class="sub" href="tools.html#stats"><small>07</small>Statistics</a><a class="sub" href="tools.html#live"><small>08</small>Live steps</a><a class="sub" href="tools.html#tools"><small>09</small>Look-ups</a>
+</div>
+<main>
+<section class="art" data-theme="light" style="background:linear-gradient(180deg,var(--sand),var(--cream) 85%)"><div class="wrap">
+  <p class="crumb rv"><a href="learn.html">Learn</a> / Physics</p>
+  <h1 class="rv" style="--d:.06s">Is 45° really the best launch angle?</h1>
+  <p class="lede rv" style="--d:.14s">On flat ground, yes. But the moment you launch from a height, the best angle drops below 45°.</p>
+  <p class="meta rv" style="--d:.2s">PHYSICS · 4 MIN READ</p>
+  <div class="demo rv" style="--d:.24s"><p class="cap">Try it: change speed, angle and launch height</p><div class="dev"><div class="dev-in"><div class="chat"><div class="mnt" data-w="proj"></div></div></div></div></div>
+</div></section>
+<section data-theme="light"><div class="wrap"><article class="prose"><h2>Level ground</h2>
+<p>If you launch and land at the same height, with no air resistance, the range is</p>
+<div class="eqb">R = v₀² · sin(2θ) / g</div>
+<p>sin(2θ) is largest, equal to 1, when 2θ = 90°, so θ = 45°. Two angles that add up to 90° give the same range. For example, 35° and 55° land in the same place, one with a flat fast arc and one with a high lob.</p>
+<h2>Worked example</h2>
+<p>Launch speed v₀ = 18 m/s and g = 9.81 m/s².</p>
+<table><tr><th>Angle</th><th>Range</th></tr><tr><td>35°</td><td>31.0 m</td></tr><tr><td>45°</td><td>33.0 m</td></tr><tr><td>55°</td><td>31.0 m</td></tr></table>
+<p>Time in the air and the peak height follow from the vertical motion:</p>
+<div class="eqb">T = 2 v₀ sin θ / g<br>H = v₀² sin²θ / (2g)</div>
+<h2>Launching from a height</h2>
+<p>Throw from a cliff, a roof or even shoulder height and the ball has extra distance to fall, which buys it extra time in the air. The best angle then becomes</p>
+<div class="eqb">θ = arctan( v₀ / √(v₀² + 2 g h) )</div>
+<p>With v₀ = 18 m/s and a launch height of 2 m, that is about 43°. The higher you launch from, the smaller the best angle gets.</p>
+<div class="note">Real projectiles also fight air resistance, which lowers the best angle too. The formulas here assume none.</div>
+<h2>What to try</h2>
+<ul><li>Set the height to 0 and sweep the angle. Watch the range peak at 45°.</li><li>Raise the launch height and see the peak shift to a smaller angle.</li><li>Find two angles that land in the same spot.</li></ul>
+<div class="note" style="background:var(--mint)"><b>Want to try your own?</b> Ask Phraortes in plain words and it builds the tool for you. <a href="https://novamind-official.github.io/">Open the app →</a></div></article></div></section>
+<section class="more-art" data-theme="light"><div class="wrap"><div class="sec-h"><p class="kick rv">Keep learning</p></div><div class="lrow" style="grid-template-columns:repeat(3,1fr);margin-top:28px"><a class="lc rv" style="background:var(--mint);--d:0.00s" href="learn-balance-chemical-equations.html"><small>Chemistry</small><h3>How to balance a chemical equation</h3><span class="go">Read</span></a><a class="lc rv" style="background:var(--sky);--d:0.08s" href="learn-rc-time-constant.html"><small>Circuits</small><h3>The RC time constant, explained</h3><span class="go">Read</span></a><a class="lc rv" style="background:var(--lilac);--d:0.16s" href="learn-electron-configuration.html"><small>Chemistry</small><h3>How to write an electron configuration</h3><span class="go">Read</span></a></div></div></section>
+</main>
+<button class="up" id="up" aria-label="Back to top"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="rg" cx="29" cy="29" r="25"/><circle class="pg" id="upg" cx="29" cy="29" r="25"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<footer data-theme="dark"><div class="wrap"><span>© Phraortes</span><a href="https://novamind-official.github.io/">Try it free</a><a href="how-it-works.html">How it works</a><a href="features.html">Features</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><span class="sp"></span><span>AI can make mistakes. Check important results.</span></div></footer>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<script src="https://novamind-official.github.io/katex.min.js"></script>
+<script>
+(function(){
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function tex(t,d){try{return katex.renderToString(String(t),{displayMode:!!d,throwOnError:false,trust:false})}catch(e){return esc(t)}}
+  window.PHR_esc=esc; window.PHR_texHTML=tex; window.PHR_haptic=function(){};
+  window.PHR_inline=function(t){var parts=String(t==null?"":t).split("$");return parts.map(function(p,i){return i%2?tex(p,false):esc(p).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}).join("")};
+})();
+</script>
+<script src="https://novamind-official.github.io/artifacts.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
