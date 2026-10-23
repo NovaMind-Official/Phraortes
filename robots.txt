@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://phraortes.github.io/sitemap.xml
+Sitemap: https://novamind-official.github.io/Phraortes/sitemap.xml
