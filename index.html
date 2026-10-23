@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Phraortes — AI Study Assistant for Math, Physics & Chemistry</title>
+<meta name="description" content="Phraortes is an AI study assistant that solves math, physics and chemistry step by step, then builds interactive graphs, 3D molecules, circuits and simulations inside the answer.">
+<link rel="canonical" href="https://phraortes.github.io/">
+<meta name="theme-color" content="#0b0907">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Phraortes">
+<meta property="og:title" content="Phraortes — AI Study Assistant for Math, Physics & Chemistry">
+<meta property="og:description" content="Phraortes is an AI study assistant that solves math, physics and chemistry step by step, then builds interactive graphs, 3D molecules, circuits and simulations inside the answer.">
+<meta property="og:url" content="https://phraortes.github.io/">
+<meta property="og:image" content="https://novamind-official.github.io/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="https://novamind-official.github.io/icon-192.png">
+<link rel="apple-touch-icon" href="https://novamind-official.github.io/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Phraortes","url":"https://phraortes.github.io/","description":"AI study assistant for math, physics and chemistry with interactive graphs, molecules and circuits."}</script>
+<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css">
+<link rel="stylesheet" href="site.css"><link rel="stylesheet" href="lux.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Phraortes","url":"https://phraortes.github.io/","description":"AI study assistant for math, physics and chemistry with interactive graphs, molecules and circuits."}</script>
+</head>
+<body class="lux">
+<header class="nav" id="nav">
+  <a class="brand" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="26" height="26">Phraortes</a>
+  <nav class="links" aria-label="Main">
+    <a href="how-it-works.html">How it works</a><a href="features.html">Features</a><span style="position:relative"><button id="megabtn" aria-expanded="false" aria-controls="mega">Tools <svg viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></button></span>
+    <a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a>
+  </nav>
+  <span class="sp"></span>
+  <a class="btn ink sm" href="https://novamind-official.github.io/">Try it free</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i></button>
+</header>
+<div class="mega" id="mega"><a class="mi" style="background:var(--cream2)" href="tools.html#solve"><small>01</small><b>Solve</b><span>Step-by-step solutions</span></a><a class="mi" style="background:var(--sky)" href="tools.html#graphs"><small>02</small><b>Graphs</b><span>Interactive plots</span></a><a class="mi" style="background:var(--lilac)" href="tools.html#molecules"><small>03</small><b>Molecules</b><span>3D chemistry</span></a><a class="mi" style="background:var(--mint)" href="tools.html#elements"><small>04</small><b>Elements</b><span>All 118, one touch</span></a><a class="mi" style="background:var(--sand)" href="tools.html#simulate"><small>05</small><b>Simulate</b><span>Circuits and motion</span></a><a class="mi" style="background:var(--cream2)" href="tools.html#code"><small>06</small><b>Code</b><span>Run it in the chat</span></a><a class="mi" style="background:var(--lilac)" href="tools.html#stats"><small>07</small><b>Statistics</b><span>Data, plots, regression</span></a><a class="mi" style="background:var(--sky)" href="tools.html#live"><small>08</small><b>Live steps</b><span>Watch it work</span></a><a class="mi" style="background:var(--cream2)" href="tools.html#tools"><small>09</small><b>Look-ups</b><span>Search, files, voice</span></a><a class="mi" style="background:var(--ink);color:var(--cream);grid-column:1/-1;min-height:84px;flex-direction:row;align-items:center;gap:14px" href="tools.html"><b style="margin:0">See all tools</b><span style="margin:0 0 0 auto">→</span></a></div>
+<div class="menu" id="menu">
+  <div class="grp">Explore</div><a href="how-it-works.html"><small>→</small>How it works</a><a href="features.html"><small>→</small>Features</a><a href="tools.html"><small>→</small>All tools</a><a href="compare.html"><small>→</small>Compare</a><a href="pricing.html"><small>→</small>Pricing</a><a href="learn.html"><small>→</small>Learn</a><a href="story.html"><small>→</small>Our story</a><a href="changelog.html"><small>→</small>Changelog</a>
+  <div class="grp">Jump to a tool</div><a class="sub" href="tools.html#solve"><small>01</small>Solve</a><a class="sub" href="tools.html#graphs"><small>02</small>Graphs</a><a class="sub" href="tools.html#molecules"><small>03</small>Molecules</a><a class="sub" href="tools.html#elements"><small>04</small>Elements</a><a class="sub" href="tools.html#simulate"><small>05</small>Simulate</a><a class="sub" href="tools.html#code"><small>06</small>Code</a><a class="sub" href="tools.html#stats"><small>07</small>Statistics</a><a class="sub" href="tools.html#live"><small>08</small>Live steps</a><a class="sub" href="tools.html#tools"><small>09</small>Look-ups</a>
+</div>
+<main id="top">
+<div class="cin" id="cin" data-sec="top" data-theme="dark">
+<section class="cn-sec cn-c0" id="c0" data-sec="top" data-theme="dark"><div class="cn-pin">
+ <div class="cn-bg" aria-hidden="true"><i class="cn-glow"></i><svg class="cn-rings" viewBox="0 0 800 800"><circle cx="400" cy="400" r="250"/><circle cx="400" cy="400" r="330" stroke-dasharray="3 9"/><circle cx="400" cy="400" r="390"/></svg></div>
+ <div class="cn-copy"><p class="kick">AI study assistant · Math · Physics · Chemistry</p><h1>Learn it by <em>touching</em> it.</h1><p class="cn-sub">An AI that explains the problem, then builds the graph, the molecule or the circuit inside the answer.</p><div class="cta"><a class="btn gold" href="https://novamind-official.github.io/">Try it free</a><a class="lm" href="#cn-state">See how it works<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div></div>
+ <div class="cn-ph cn-p0"><div class="cn-scr"><img src="shot-welcome.jpg" alt="Phraortes welcome screen" width="780" height="1688" decoding="async"></div><i class="cn-isl"></i></div>
+ <div class="cn-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
+</div></section>
+<section class="cn-sec cn-c1" id="c1" data-sec="why" data-theme="dark"><div class="cn-pin"><p class="cn-stm" id="cn-state"><span>Most</span> <span>AI</span> <span>just</span> <span>answers.</span> <span class="g">Phraortes</span> <span class="g">teaches.</span> <span>It</span> <span>works</span> <span>through</span> <span>the</span> <span>problem</span> <span>step</span> <span>by</span> <span>step,</span> <span>then</span> <span>builds</span> <span>the</span> <span>graph,</span> <span>the</span> <span>molecule,</span> <span>the</span> <span>circuit,</span> <span>right</span> <span>inside</span> <span>the</span> <span>answer.</span> <span class="g">Something</span> <span class="g">you</span> <span class="g">can</span> <span class="g">drag,</span> <span class="g">rotate</span> <span class="g">and</span> <span class="g">break.</span> <span>That</span> <span>is</span> <span>how</span> <span>you</span> <span>actually</span> <span>learn</span> <span>it.</span> </p></div></section>
+<section class="cn-sec cn-c2" id="c2" data-sec="scenes" data-theme="dark"><div class="cn-pin">
+ <div class="cn-bg" aria-hidden="true"><i class="cn-glow b"></i></div>
+ <div class="cn-left"><p class="kick">What it builds</p><div class="cn-words" id="cnWords"><ul><li><a href="tools.html#solve">Solutions</a></li><li><a href="tools.html#graphs">Graphs</a></li><li><a href="tools.html#molecules">Molecules</a></li><li><a href="tools.html#simulate">Circuits</a></li><li><a href="tools.html#elements">Elements</a></li><li><a href="tools.html#code">Code</a></li><li><a href="tools.html#stats">Statistics</a></li></ul></div><div class="cn-caps" id="cnCaps"><div class="cn-cap"><b>Every step, in order.</b><p>Typeset formulas and the reasoning, not only the result.</p><a class="lm" href="tools.html#solve">See solutions<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div><div class="cn-cap"><b>Pan, pinch, read.</b><p>Tap any point on the curve to read its exact value.</p><a class="lm" href="tools.html#graphs">See graphs<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div><div class="cn-cap"><b>Rotate it in 3D.</b><p>Water, methane, benzene. Drag to turn them, and balance any equation.</p><a class="lm" href="tools.html#molecules">See molecules<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div><div class="cn-cap"><b>Change it. Watch it react.</b><p>Move a slider and every current and voltage updates live.</p><a class="lm" href="tools.html#simulate">See circuits<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div><div class="cn-cap"><b>All 118, one touch away.</b><p>Tap an element for its shells, mass and properties.</p><a class="lm" href="tools.html#elements">See elements<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div><div class="cn-cap"><b>Write it. Run it.</b><p>Describe a program, edit it and run it right in the chat.</p><a class="lm" href="tools.html#code">See code<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div><div class="cn-cap"><b>Numbers in, picture out.</b><p>Paste your data and get the summary, a histogram and a regression.</p><a class="lm" href="tools.html#stats">See statistics<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div></div></div>
+ <div class="cn-ph cn-p2"><div class="cn-scr"><img src="shot-answer.jpg" alt="Phraortes solving a ramp problem step by step" width="780" height="1688" loading="lazy" decoding="async"><img src="shot-graph.jpg" alt="An interactive graph of two curves" width="780" height="1688" loading="lazy" decoding="async"><img src="shot-molecule.jpg" alt="A 3D water molecule" width="780" height="1688" loading="lazy" decoding="async"><img src="shot-circuit.jpg" alt="A live circuit with sliders" width="780" height="1688" loading="lazy" decoding="async"><img src="shot-periodic.jpg" alt="The periodic table showing gold" width="780" height="1688" loading="lazy" decoding="async"><img src="shot-code.jpg" alt="A code playground running a bouncing ball" width="780" height="1688" loading="lazy" decoding="async"><img src="shot-stats.jpg" alt="Statistics summary of a data set" width="780" height="1688" loading="lazy" decoding="async"></div><i class="cn-isl"></i></div>
+ <div class="cn-dots" id="cnDots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div></section>
+<section class="cn-sec cn-c3" id="c3" data-sec="why" data-theme="dark"><div class="cn-pin">
+ <div class="cn-bg" aria-hidden="true"><i class="cn-glow c"></i></div>
+ <div class="cn-copy3"><h2>Everything <em>within reach.</em></h2><p>Swipe for your chats. Tap for your tools. Ask in English or Persian.</p></div>
+ <div class="cn-ph cn-pl"><div class="cn-scr"><img src="shot-sidebar.jpg" alt="Chat list" width="780" height="1688" loading="lazy" decoding="async"></div><i class="cn-isl"></i></div><div class="cn-ph cn-pr"><div class="cn-scr"><img src="shot-tools.jpg" alt="The tools panel" width="780" height="1688" loading="lazy" decoding="async"></div><i class="cn-isl"></i></div><div class="cn-ph cn-pc"><div class="cn-scr"><img src="shot-welcome.jpg" alt="Phraortes" width="780" height="1688" loading="lazy" decoding="async"></div><i class="cn-isl"></i></div>
+</div></section>
+<section class="cn-sec cn-c4" id="c4" data-sec="cores" data-theme="dark"><div class="cn-pin">
+ <div class="cn-bg" aria-hidden="true"><i class="cn-glow d"></i></div>
+ <div class="cn-copy4"><h2>Four cores. <em>Pick the depth.</em></h2></div>
+ <div class="cn-cores"><div class="cn-core o1"><i class="cn-orb"></i><b>Prime</b><span>Fast, everyday answers.</span></div><div class="cn-core o2"><i class="cn-orb"></i><b>Intellect</b><span>Deeper multi-step reasoning.</span></div><div class="cn-core o3"><i class="cn-orb"></i><b>Apex</b><span>Hard problems and code.</span></div><div class="cn-core o4"><i class="cn-orb"></i><b>Sovereign</b><span>The most power we offer.</span></div></div>
+ <div class="cn-end"><p>Free to start. No card. Nothing to install.</p><div class="cta"><a class="btn gold" href="https://novamind-official.github.io/">Try it free</a><a class="lm" href="pricing.html">See pricing<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div></div>
+</div></section>
+</div>
+<section class="nums" data-sec="top" data-theme="light"><div class="wrap">
+  <div class="num-grid">
+    <div class="nm rv"><b data-n="118">0</b><span>elements, each with a Bohr model and electron configuration</span></div>
+    <div class="nm rv" style="--d:.08s"><b data-n="11">0</b><span>kinds of live tools that appear inside an answer</span></div>
+    <div class="nm rv" style="--d:.16s"><b data-n="4">0</b><span>AI cores, from fast and light to the most powerful</span></div>
+    <div class="nm rv" style="--d:.24s"><b data-n="0" data-pre="$">$0</b><span>to start. No card, no install</span></div>
+  </div>
+</div></section>
+
+<section class="how3" id="how" data-sec="how" data-theme="light"><div class="wrap">
+  <div class="sec-h"><p class="kick rv">How it works</p><h2 class="rv" style="--d:.06s">Ask. Watch. <em>Explore.</em></h2><p class="rv" style="--d:.14s">Three steps from a question to something you actually understand.</p></div>
+  <div class="s3">
+    <article class="s3c rv" style="background:var(--sand)"><span>1</span><h3>Ask in your own words</h3><p>Type a problem, snap a photo or just talk. No special syntax.</p><em class="ex">“Why does a heavier ball fall at the same speed?”</em><a class="lm" href="how-it-works.html#ask">Learn more<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></article>
+    <article class="s3c rv" style="background:var(--sky);--d:.08s"><span>2</span><h3>Watch it work</h3><p>A short live summary shows what it is doing: reading, searching, checking, writing.</p><em class="ex">“Searching the web… Reading the page… Writing the answer”</em><a class="lm" href="how-it-works.html#watch">Learn more<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></article>
+    <article class="s3c rv" style="background:var(--mint);--d:.16s"><span>3</span><h3>Explore and practice</h3><p>Drag the graph, rotate the molecule, then quiz yourself on it.</p><em class="ex">“Quiz me on what we just covered.”</em><a class="lm" href="how-it-works.html#explore">Learn more<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></article>
+  </div>
+</div></section>
+<section class="feat3" id="features" data-sec="feat" data-theme="light"><div class="wrap"><div class="sec-h"><p class="kick rv">Features</p><h2 class="rv" style="--d:.06s">Built for people who <em>want to understand.</em></h2></div><div class="fg"><a class="fc rv" style="background:#e9e2d3;--d:0.00s" href="features.html#solve"><small>01</small><h3>Step-by-step solutions</h3><p>Worked answers with the reasoning, not only the result.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#cde3f1;--d:0.06s" href="features.html#live"><small>02</small><h3>Live steps</h3><p>Watch what it is doing while it works.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#dcd3f2;--d:0.12s" href="features.html#graphs"><small>03</small><h3>Interactive graphs</h3><p>Pan, pinch and tap to read exact values.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#cfe8d5;--d:0.18s" href="features.html#molecules"><small>04</small><h3>3D molecules</h3><p>Rotate them. Balance any equation.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#f0dfb8;--d:0.00s" href="features.html#sim"><small>05</small><h3>Simulations</h3><p>Circuits and motion with live sliders.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#e9e2d3;--d:0.06s" href="features.html#code"><small>06</small><h3>Code playground</h3><p>Describe it, run it, edit it, in the chat.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#dcd3f2;--d:0.12s" href="features.html#stats"><small>07</small><h3>Statistics lab</h3><p>Paste numbers, get the picture.</p><span class="go">Learn more</span></a><a class="fc rv" style="background:#cde3f1;--d:0.18s" href="features.html#privacy"><small>08</small><h3>Private by design</h3><p>Chats stay in your browser.</p><span class="go">Learn more</span></a></div><p style="margin-top:34px"><a class="lm" href="features.html">All features<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></p></div></section>
+<section class="tt t-dark" id="toolsteaser" data-sec="why" data-theme="dark"><div class="wrap grid">
+  <div class="txt"><p class="kick rv">Tools</p><h2 class="rv" style="--d:.06s">Tools that appear <em>inside the answer.</em></h2><p class="rv" style="--d:.14s">Fourteen kinds of live tools. Ask for a circuit and you get one you can change, not a description of one.</p>
+  <ul class="tl rv" style="--d:.2s"><li><a href="tools.html#solve">Solutions</a></li><li><a href="tools.html#graphs">Graphs</a></li><li><a href="tools.html#molecules">Molecules</a></li><li><a href="tools.html#elements">Elements</a></li><li><a href="tools.html#simulate">Simulations</a></li><li><a href="tools.html#code">Code</a></li><li><a href="tools.html#stats">Statistics</a></li><li><a href="tools.html#tools">Look-ups</a></li></ul>
+  <p class="rv" style="--d:.26s;margin-top:26px"><a class="lm" href="tools.html">Explore every tool<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></p></div>
+  <div class="rv" style="--d:.1s"><div class="dev"><div class="dev-in"><div class="chat"><div class="q">Build a 12 V circuit with two resistors in parallel and a lamp.</div><div class="mnt" data-w="hero"></div></div></div></div></div>
+</div></section>
+<section class="why t-dark" id="why" data-sec="why" data-theme="dark"><div class="wrap">
+  <div class="sec-h"><p class="kick rv">Why Phraortes</p><h2 class="rv" style="--d:.06s">Not another <em>chatbot.</em></h2><p class="rv" style="--d:.14s">A chatbot describes science. Phraortes puts it in your hands.</p></div>
+  <div class="cmp">
+    <div class="h"></div><div class="h">Typical AI chatbot</div><div class="h us">Phraortes</div>
+    <div class="lb">The answer</div><div class="them">A wall of text</div><div class="us">Steps plus a live graph, molecule or circuit</div>
+    <div class="lb">The maths</div><div class="them">Plain symbols you have to re-read</div><div class="us">Typeset formulas in step cards, one step at a time</div>
+    <div class="lb">Practice</div><div class="them">Copy it into another app</div><div class="us">Quizzes and flashcards built into the chat</div>
+    <div class="lb">Facts</div><div class="them">Answers from old memory</div><div class="us">Searches the web mid-answer and shows each step</div>
+    <div class="lb">Your chats</div><div class="them">Often kept on the provider's servers</div><div class="us">Stored in your browser, on your device</div>
+    <div class="lb">Getting it</div><div class="them">Another app to install</div><div class="us">Opens in the browser, installs like an app</div>
+  </div>
+  <p class="fine">The comparison describes typical general-purpose chatbots, not any specific product.</p>
+  <p style="margin-top:26px"><a class="btn line" style="color:#f3eee4;border-color:rgba(243,238,228,.35)" href="compare.html">See the full comparison →</a></p>
+</div></section>
+
+<section class="cores" id="cores" data-sec="cores" data-theme="light"><div class="wrap">
+  <div class="sec-h"><p class="kick rv">Cores</p><h2 class="rv" style="--d:.06s">Four cores. <em>Pick the depth.</em></h2><p class="rv" style="--d:.14s">Start with Prime and move up when the problem gets harder.</p></div>
+  <div class="core-row">
+    <div class="core rv" style="background:var(--mint)"><small>Free</small><h3>Prime</h3><p>Fast, everyday answers.</p><p class="cex"><b>Example</b>“Convert 72 km/h to m/s”</p><p class="cr">Quick facts, conversions, short explanations.</p></div>
+    <div class="core rv" style="background:var(--sky);--d:.08s"><small>Satrap</small><h3>Intellect</h3><p>Deeper reasoning for multi-step problems.</p><p class="cex"><b>Example</b>“Derive the range of a projectile on a slope”</p><p class="cr">Multi-step physics and maths with the reasoning shown.</p></div>
+    <div class="core rv" style="background:var(--lilac);--d:.16s"><small>Immortal</small><h3>Apex</h3><p>Hard problems and code.</p><p class="cex"><b>Example</b>“Write and explain a Python solver for a damped oscillator”</p><p class="cr">Hard problems, proofs and code.</p></div>
+    <div class="core rv" style="background:var(--sand);--d:.24s"><small>Shahanshah</small><h3>Sovereign</h3><p>The most power we offer.</p><p class="cex"><b>Example</b>“Plan a full revision course for organic chemistry”</p><p class="cr">Long, deep work and voice with Aura.</p></div>
+  </div>
+</div></section>
+
+<section class="pricing" id="pricing" data-sec="pricing" data-theme="light"><div class="wrap">
+  <div class="sec-h"><p class="kick rv">Pricing</p><h2 class="rv" style="--d:.06s">Start free. <em>Go deeper</em> when you need to.</h2><p class="rv" style="--d:.14s">You don't need a card to begin.</p></div>
+  <div class="plans">
+    <div class="plan rv"><h3>Free</h3><div class="price">$0</div><ul><li>Prime core</li><li>A limited number of messages per period</li><li>All graphs, simulations and molecules</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
+    <div class="plan rv" style="--d:.08s"><h3>Satrap</h3><div class="price">$14.99<small>/mo</small></div><ul><li>Everything in Free</li><li>Intellect core, no message cap</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
+    <div class="plan hot rv" style="--d:.16s"><h3>Immortal</h3><div class="price">$49.99<small>/mo</small></div><ul><li>Everything in Satrap</li><li>Apex core for deep reasoning and code</li><li>Larger file uploads</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
+    <div class="plan rv" style="--d:.24s"><h3>Shahanshah</h3><div class="price">$119.99<small>/mo</small></div><ul><li>Everything in Immortal</li><li>Sovereign core</li><li>Aura voice chat</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
+  </div>
+  <p class="note">Payment is in USDT (BEP-20 network) and confirms automatically. Plans and limits may change. <a href="pricing.html" style="text-decoration:underline">Full plan details →</a></p>
+</div></section>
+
+<section class="faq" id="faq" data-sec="faq" data-theme="light"><div class="wrap">
+  <div class="sec-h"><p class="kick rv">Questions</p><h2 class="rv" style="--d:.06s">Good to <em>know.</em></h2></div>
+  <details><summary>Is it free?</summary><p>Yes. The free plan gives you every study tool with a limited number of messages. Paid plans lift the limit and unlock stronger cores.</p></details>
+  <details><summary>Which subjects does it cover?</summary><p>Math, physics and chemistry are the focus: graphs, simulations, step-by-step solutions, molecules, the periodic table and circuits. You can ask about other topics too.</p></details>
+  <details><summary>Does it work in other languages?</summary><p>Yes. Ask in English or Persian and the solutions, formulas and tools follow your language.</p></details>
+  <details><summary>Do I need to install anything?</summary><p>No. It runs in your browser. On a phone, use "Add to Home Screen" to open it like an app.</p></details>
+  <details><summary>Can I trust the answers?</summary><p>Phraortes can make mistakes. Check important results, especially numbers, against a textbook or your teacher.</p></details>
+</div></section>
+
+<section class="learnh" data-sec="learn" data-theme="light" style="padding:20px 0 130px"><div class="wrap">
+  <div class="sec-h"><p class="kick rv">Learn</p><h2 class="rv" style="--d:.06s">Short lessons, <em>live examples.</em></h2><p class="rv" style="--d:.14s">Plain-English guides with a working tool inside every one.</p></div>
+  <div class="lrow">
+    <a class="lc rv" style="background:var(--mint)" href="learn-balance-chemical-equations.html"><small>Chemistry</small><h3>How to balance an equation</h3><span class="go">Read</span></a>
+    <a class="lc rv" style="background:var(--sky);--d:.08s" href="learn-rc-time-constant.html"><small>Circuits</small><h3>The RC time constant</h3><span class="go">Read</span></a>
+    <a class="lc rv" style="background:var(--sand);--d:.16s" href="learn-projectile-launch-angle.html"><small>Physics</small><h3>The best launch angle</h3><span class="go">Read</span></a>
+    <a class="lc rv" style="background:var(--lilac);--d:.24s" href="learn-electron-configuration.html"><small>Chemistry</small><h3>Writing electron configurations</h3><span class="go">Read</span></a>
+  </div>
+  <p style="margin-top:28px"><a class="btn line" href="learn.html">All lessons →</a></p>
+</div></section>
+
+<section class="team" id="team" data-sec="faq" data-theme="dark"><div class="wrap">
+  <h2>For schools <em>&amp; teams.</em></h2><p>Want Phraortes under your own brand or inside your course platform? Let's talk.</p>
+  <a class="btn" id="contact" href="#">Get in touch</a>
+</div></section>
+
+</main><button class="up" id="up" aria-label="Back to top"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="rg" cx="29" cy="29" r="25"/><circle class="pg" id="upg" cx="29" cy="29" r="25"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<footer data-theme="dark"><div class="wrap"><span>© Phraortes</span><a href="https://novamind-official.github.io/">Try it free</a><a href="how-it-works.html">How it works</a><a href="features.html">Features</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><a href="story.html">Story</a><a href="changelog.html">Changelog</a><span class="sp"></span><span>AI can make mistakes. Check important results.</span></div></footer>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<script src="https://novamind-official.github.io/katex.min.js"></script>
+<script>
+(function(){
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function tex(t,d){try{return katex.renderToString(String(t),{displayMode:!!d,throwOnError:false,trust:false})}catch(e){return esc(t)}}
+  window.PHR_esc=esc; window.PHR_texHTML=tex; window.PHR_haptic=function(){};
+  window.PHR_inline=function(t){var parts=String(t==null?"":t).split("$");return parts.map(function(p,i){return i%2?tex(p,false):esc(p).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}).join("")};
+})();
+</script>
+<script src="https://novamind-official.github.io/artifacts.js"></script>
+<script src="site.js"></script>
+<script src="lux.js" defer></script></body>
+</html>

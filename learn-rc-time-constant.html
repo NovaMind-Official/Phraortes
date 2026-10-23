@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The RC time constant, explained — Phraortes</title>
+<meta name="description" content="What the RC time constant means, the charging and discharging formulas, and a worked example with a live capacitor simulation.">
+<link rel="canonical" href="https://phraortes.github.io/learn-rc-time-constant.html">
+<meta name="theme-color" content="#0b0907">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Phraortes">
+<meta property="og:title" content="The RC time constant, explained — Phraortes">
+<meta property="og:description" content="What the RC time constant means, the charging and discharging formulas, and a worked example with a live capacitor simulation.">
+<meta property="og:url" content="https://phraortes.github.io/learn-rc-time-constant.html">
+<meta property="og:image" content="https://novamind-official.github.io/icon-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="https://novamind-official.github.io/icon-192.png">
+<link rel="apple-touch-icon" href="https://novamind-official.github.io/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The RC time constant, explained","description":"What the RC time constant means, the charging and discharging formulas, and a worked example with a live capacitor simulation.","mainEntityOfPage":"https://phraortes.github.io/learn-rc-time-constant.html","publisher":{"@type":"Organization","name":"Phraortes"}}</script>
+<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css">
+<link rel="stylesheet" href="site.css"><link rel="stylesheet" href="lux.css">
+</head>
+<body class="lux">
+<header class="nav" id="nav">
+  <a class="brand" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="26" height="26">Phraortes</a>
+  <nav class="links" aria-label="Main">
+    <a href="how-it-works.html">How it works</a><a href="features.html">Features</a><span style="position:relative"><button id="megabtn" aria-expanded="false" aria-controls="mega">Tools <svg viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg></button></span>
+    <a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html" class="cur">Learn</a>
+  </nav>
+  <span class="sp"></span>
+  <a class="btn ink sm" href="https://novamind-official.github.io/">Try it free</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i></button>
+</header>
+<div class="mega" id="mega"><a class="mi" style="background:var(--cream2)" href="tools.html#solve"><small>01</small><b>Solve</b><span>Step-by-step solutions</span></a><a class="mi" style="background:var(--sky)" href="tools.html#graphs"><small>02</small><b>Graphs</b><span>Interactive plots</span></a><a class="mi" style="background:var(--lilac)" href="tools.html#molecules"><small>03</small><b>Molecules</b><span>3D chemistry</span></a><a class="mi" style="background:var(--mint)" href="tools.html#elements"><small>04</small><b>Elements</b><span>All 118, one touch</span></a><a class="mi" style="background:var(--sand)" href="tools.html#simulate"><small>05</small><b>Simulate</b><span>Circuits and motion</span></a><a class="mi" style="background:var(--cream2)" href="tools.html#code"><small>06</small><b>Code</b><span>Run it in the chat</span></a><a class="mi" style="background:var(--lilac)" href="tools.html#stats"><small>07</small><b>Statistics</b><span>Data, plots, regression</span></a><a class="mi" style="background:var(--sky)" href="tools.html#live"><small>08</small><b>Live steps</b><span>Watch it work</span></a><a class="mi" style="background:var(--cream2)" href="tools.html#tools"><small>09</small><b>Look-ups</b><span>Search, files, voice</span></a><a class="mi" style="background:var(--ink);color:var(--cream);grid-column:1/-1;min-height:84px;flex-direction:row;align-items:center;gap:14px" href="tools.html"><b style="margin:0">See all tools</b><span style="margin:0 0 0 auto">→</span></a></div>
+<div class="menu" id="menu">
+  <div class="grp">Explore</div><a href="how-it-works.html"><small>→</small>How it works</a><a href="features.html"><small>→</small>Features</a><a href="tools.html"><small>→</small>All tools</a><a href="compare.html"><small>→</small>Compare</a><a href="pricing.html"><small>→</small>Pricing</a><a href="learn.html"><small>→</small>Learn</a><a href="story.html"><small>→</small>Our story</a><a href="changelog.html"><small>→</small>Changelog</a>
+  <div class="grp">Jump to a tool</div><a class="sub" href="tools.html#solve"><small>01</small>Solve</a><a class="sub" href="tools.html#graphs"><small>02</small>Graphs</a><a class="sub" href="tools.html#molecules"><small>03</small>Molecules</a><a class="sub" href="tools.html#elements"><small>04</small>Elements</a><a class="sub" href="tools.html#simulate"><small>05</small>Simulate</a><a class="sub" href="tools.html#code"><small>06</small>Code</a><a class="sub" href="tools.html#stats"><small>07</small>Statistics</a><a class="sub" href="tools.html#live"><small>08</small>Live steps</a><a class="sub" href="tools.html#tools"><small>09</small>Look-ups</a>
+</div>
+<main>
+<section class="art" data-theme="light" style="background:linear-gradient(180deg,var(--sky),var(--cream) 85%)"><div class="wrap">
+  <p class="crumb rv"><a href="learn.html">Learn</a> / Circuits</p>
+  <h1 class="rv" style="--d:.06s">The RC time constant, explained</h1>
+  <p class="lede rv" style="--d:.14s">A resistor and a capacitor in series fill up like a bucket with a narrow tap. The time constant tells you how fast.</p>
+  <p class="meta rv" style="--d:.2s">CIRCUITS · 4 MIN READ</p>
+  <div class="demo rv" style="--d:.24s"><p class="cap">Try it: change V, R and C and watch the curve</p><div class="dev"><div class="dev-in"><div class="chat"><div class="mnt" data-w="rc"></div></div></div></div></div>
+</div></section>
+<section data-theme="light"><div class="wrap"><article class="prose"><h2>Definition</h2>
+<p>For a resistor R and a capacitor C in series, the time constant is</p>
+<div class="eqb">τ = R × C</div>
+<p>With R in ohms and C in farads, τ comes out in seconds. A bigger resistor limits the current more, and a bigger capacitor holds more charge, so both slow things down.</p>
+<h2>Charging</h2>
+<p>Connect the series pair to a source V. The capacitor voltage and the current follow</p>
+<div class="eqb">V_C(t) = V · (1 − e<sup>−t/τ</sup>)<br>I(t) = (V / R) · e<sup>−t/τ</sup></div>
+<p>At the instant you connect, the capacitor is empty, so all of V drops across the resistor and the current is its largest, V/R. The current then falls away while the voltage climbs.</p>
+<h2>How far after how long?</h2>
+<table><tr><th>Time</th><th>Capacitor charged to</th></tr><tr><td>1 τ</td><td>63.2 %</td></tr><tr><td>2 τ</td><td>86.5 %</td></tr><tr><td>3 τ</td><td>95.0 %</td></tr><tr><td>4 τ</td><td>98.2 %</td></tr><tr><td>5 τ</td><td>99.3 %</td></tr></table>
+<p>That is why engineers say a capacitor is "fully charged" after about five time constants.</p>
+<h2>Worked example</h2>
+<p>Take V = 9 V, R = 5 kΩ and C = 200 µF.</p>
+<div class="eqb">τ = 5000 Ω × 0.0002 F = 1 s</div>
+<p>The starting current is 9 V ÷ 5000 Ω = 1.8 mA. After one second the capacitor sits at about 63 % of 9 V, which is roughly 5.7 V. The energy it stores at full charge is ½CV² = ½ × 200 µF × (9 V)² = 8.1 mJ.</p>
+<h2>Discharging</h2>
+<p>If you then let the capacitor discharge through the resistor, the voltage simply decays:</p>
+<div class="eqb">V_C(t) = V₀ · e<sup>−t/τ</sup></div>
+<p>After one τ it has dropped to about 37 % of where it started.</p>
+<div class="note" style="background:var(--mint)"><b>Want to try your own?</b> Ask Phraortes in plain words and it builds the tool for you. <a href="https://novamind-official.github.io/">Open the app →</a></div></article></div></section>
+<section class="more-art" data-theme="light"><div class="wrap"><div class="sec-h"><p class="kick rv">Keep learning</p></div><div class="lrow" style="grid-template-columns:repeat(3,1fr);margin-top:28px"><a class="lc rv" style="background:var(--mint);--d:0.00s" href="learn-balance-chemical-equations.html"><small>Chemistry</small><h3>How to balance a chemical equation</h3><span class="go">Read</span></a><a class="lc rv" style="background:var(--sand);--d:0.08s" href="learn-projectile-launch-angle.html"><small>Physics</small><h3>Is 45° really the best launch angle?</h3><span class="go">Read</span></a><a class="lc rv" style="background:var(--lilac);--d:0.16s" href="learn-electron-configuration.html"><small>Chemistry</small><h3>How to write an electron configuration</h3><span class="go">Read</span></a></div></div></section>
+</main>
+<button class="up" id="up" aria-label="Back to top"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="rg" cx="29" cy="29" r="25"/><circle class="pg" id="upg" cx="29" cy="29" r="25"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<footer data-theme="dark"><div class="wrap"><span>© Phraortes</span><a href="https://novamind-official.github.io/">Try it free</a><a href="how-it-works.html">How it works</a><a href="features.html">Features</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><a href="story.html">Story</a><a href="changelog.html">Changelog</a><span class="sp"></span><span>AI can make mistakes. Check important results.</span></div></footer>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+<script src="https://novamind-official.github.io/katex.min.js"></script>
+<script>
+(function(){
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function tex(t,d){try{return katex.renderToString(String(t),{displayMode:!!d,throwOnError:false,trust:false})}catch(e){return esc(t)}}
+  window.PHR_esc=esc; window.PHR_texHTML=tex; window.PHR_haptic=function(){};
+  window.PHR_inline=function(t){var parts=String(t==null?"":t).split("$");return parts.map(function(p,i){return i%2?tex(p,false):esc(p).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}).join("")};
+})();
+</script>
+<script src="https://novamind-official.github.io/artifacts.js"></script>
+<script src="site.js"></script>
+<script src="lux.js" defer></script></body>
+</html>
