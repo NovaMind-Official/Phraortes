@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css">
 <link rel="stylesheet" href="site.css"><link rel="stylesheet" href="lux.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Phraortes","url":"https://novamind-official.github.io/Phraortes/","description":"AI study assistant for math, physics and chemistry with interactive graphs, molecules and circuits."}</script>
-</head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="hero.css"></head>
 <body class="lux">
 <header class="nav" id="nav">
   <a class="brand" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="26" height="26">Phraortes</a>
@@ -39,9 +39,11 @@
 <main id="top">
 <div class="cin" id="cin" data-sec="top" data-theme="dark">
 <section class="cn-sec cn-c0" id="c0" data-sec="top" data-theme="dark"><div class="cn-pin">
- <div class="cn-bg" aria-hidden="true"><i class="cn-glow"></i><svg class="cn-rings" viewBox="0 0 800 800"><circle cx="400" cy="400" r="250"/><circle cx="400" cy="400" r="330" stroke-dasharray="3 9"/><circle cx="400" cy="400" r="390"/></svg></div>
- <div class="cn-copy"><p class="kick">AI study assistant · Math · Physics · Chemistry</p><h1>Learn it by <em>touching</em> it.</h1><p class="cn-sub">An AI that explains the problem, then builds the graph, the molecule or the circuit inside the answer.</p><div class="cta"><a class="btn gold" href="https://novamind-official.github.io/">Try it free</a><a class="lm" href="#cn-state">See how it works<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div></div>
- <div class="cn-ph cn-p0"><div class="cn-scr"><img src="shot-welcome.jpg" alt="Phraortes welcome screen" width="780" height="1688" decoding="async"></div><i class="cn-isl"></i></div>
+ <div class="cn-bg hx-bg" aria-hidden="true"><i class="hx-a a1"></i><i class="hx-a a2"></i><i class="hx-a a3"></i><div class="hx-floor"></div><canvas class="hx-cv"></canvas><div class="hx-vig"></div></div>
+ <div class="cn-copy hx-copy"><p class="kick">AI study assistant · Math · Physics · Chemistry</p><h1>Learn it by <em>touching</em> it.</h1><p class="cn-sub">An AI that explains the problem, <span class="l">then </span>builds the graph, the molecule or the circuit inside the answer.</p><div class="cta"><a class="btn gold" href="https://novamind-official.github.io/">Try it free</a><a class="lm" href="#cn-state">See how it works<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></div>
+  <div class="hx-try"><p class="hx-lab"><i></i>Try it live · pick a question</p><div class="hx-chips"><button type="button" data-s="btc" style="--c:#F7931A"><b>₿</b>Bitcoin price</button><button type="button" data-s="graph" style="--c:#7fd7ff"><b>∿</b>Plot a curve</button><button type="button" data-s="mol" style="--c:#9B7BFF"><b>⬡</b>Caffeine in 3D</button><button type="button" data-s="solve" style="--c:#E8B84A"><b>x</b>Solve x² − 5x + 6</button></div>
+  <form class="hx-ask" id="hxAsk" autocomplete="off"><input type="text" placeholder="…or type your own question" maxlength="80" aria-label="Ask a question"><button type="submit" aria-label="Ask">↑</button></form></div></div>
+ <div class="cn-ph cn-p0"><div class="cn-scr"><div class="hx-s" aria-label="Live demo of Phraortes"><div class="hx-top"><i></i><b>Phraortes</b><span>Prime 2.4</span></div><div class="hx-chat" id="hxChat"></div><div class="hx-in"><span id="hxIn" class="hxph">Ask anything…</span><i></i></div></div></div><i class="cn-isl"></i></div>
  <div class="cn-cue" aria-hidden="true"><span>Scroll</span><i></i></div>
 </div></section>
 <section class="cn-sec cn-c1" id="c1" data-sec="why" data-theme="dark"><div class="cn-pin"><p class="cn-stm" id="cn-state"><span>Most</span> <span>AI</span> <span>just</span> <span>answers.</span> <span class="g">Phraortes</span> <span class="g">teaches.</span> <span>It</span> <span>works</span> <span>through</span> <span>the</span> <span>problem</span> <span>step</span> <span>by</span> <span>step,</span> <span>then</span> <span>builds</span> <span>the</span> <span>graph,</span> <span>the</span> <span>molecule,</span> <span>the</span> <span>circuit,</span> <span>right</span> <span>inside</span> <span>the</span> <span>answer.</span> <span class="g">Something</span> <span class="g">you</span> <span class="g">can</span> <span class="g">drag,</span> <span class="g">rotate</span> <span class="g">and</span> <span class="g">break.</span> <span>That</span> <span>is</span> <span>how</span> <span>you</span> <span>actually</span> <span>learn</span> <span>it.</span> </p></div></section>
@@ -162,5 +164,5 @@
 </script>
 <script src="https://novamind-official.github.io/artifacts.js"></script>
 <script src="site.js"></script>
-<script src="lux.js" defer></script></body>
+<script src="lux.js" defer></script><script src="hero.js" defer></script></body>
 </html>

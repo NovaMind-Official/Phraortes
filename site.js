@@ -19,14 +19,17 @@ var CFG={
  prob:"type: dice\ndice: 2\nlang: en",
  optics:"type: lens\nf: 10\nd: 25\nlang: en",
  logic:"expr: (A AND B) OR NOT C\nout: Q\nlang: en",
+ cpu:"title: Sum 1 to 5\nMOV A, 0\nMOV B, 5\nloop:\nADD A, B\nDEC B\nJNZ loop\nOUT A\nHLT\nlang: en",
+ breadboard:"led: red\nsource: 9\nresistor: 220\nleds: 1\nlang: en",
  cards:"title: Core formulas\ncard: Ohm's law | $V = IR$\ncard: Avogadro's number | $6.022\\times10^{23}\\ \\text{mol}^{-1}$\ncard: Kinetic energy | $E_k=\\tfrac12 mv^2$\nlang: en"
 };
-var KIND={prob:"probability",optics:"optics",logic:"logic",playground:"playground",stats:"stats",hero:"circuit",solution:"solution",graph:"graph",molecule:"molecule",periodic:"periodic",rc:"sim",rc2:"sim",proj:"sim",balance:"balance",quiz:"quiz",cards:"flash"};
+var KIND={prob:"probability",optics:"optics",logic:"logic",cpu:"cpu",breadboard:"breadboard",playground:"playground",stats:"stats",hero:"circuit",solution:"solution",graph:"graph",molecule:"molecule",periodic:"periodic",rc:"sim",rc2:"sim",proj:"sim",balance:"balance",quiz:"quiz",cards:"flash"};
 function mountInto(box){
   var key=box.getAttribute("data-w"); if(!window.PHRW||!CFG[key]||box.getAttribute("data-m")) return;
   box.setAttribute("data-m","1");
   box.innerHTML=PHRW.html(KIND[key],CFG[key],false);
   var el=box.firstElementChild; if(el) PHRW.mount(el);
+  if(key==="cpu") setTimeout(function(){var b=box.querySelector('[data-a="run"]'); if(b) b.click()},1200);
   if(key==="prob") setTimeout(function(){var b=box.querySelector('[data-a="n1000"]'); if(b){b.click();b.click()}},350);
 }
 var all=[].slice.call(document.querySelectorAll("[data-w]"));
@@ -387,15 +390,15 @@ function prog(s){var r=s.getBoundingClientRect(),vh=window.innerHeight;return cl
 /* c0 */
 var c0copy=$(".cn-c0 .cn-copy"),p0=$(".cn-p0"),g0=$(".cn-c0 .cn-glow"),r0=$(".cn-c0 .cn-rings"),cue=$(".cn-cue");
 function paint0(){
- var p=prog(secs[0]),vh=window.innerHeight,e=sm(p/0.8);
- var ny=(1-e)*vh*0.5,s=.6+.4*e;
- p0.style.transform="translate3d(0,"+ny.toFixed(1)+"px,0) scale("+s.toFixed(3)+")";
+ var p=prog(secs[0]),vh=window.innerHeight,vw=window.innerWidth,wide=vw>=900,e=sm(p/0.8);
+ var nx=wide?(1-e)*vw*.2:0,ny=wide?(1-e)*-vh*.0:(1-e)*vh*.31,s=wide?(.94+.06*e):(.86+.14*e);
+ p0.style.transform="translate3d("+nx.toFixed(1)+"px,"+ny.toFixed(1)+"px,0) scale("+s.toFixed(3)+")";
  p0.style.opacity=(1-sm((p-0.9)/0.1)).toFixed(3);
  var co=1-sm(p/0.42);
  c0copy.style.opacity=co.toFixed(3);c0copy.style.transform="translate3d(0,"+(-p*9*vh/100).toFixed(1)+"px,0) scale("+(1-p*.06).toFixed(3)+")";
  c0copy.style.pointerEvents=co<.3?"none":"";
- g0.style.transform="scale("+(.78+p*.9).toFixed(3)+")";g0.style.opacity=(.85-sm((p-.75)/.25)*.6).toFixed(3);
- r0.style.transform="rotate("+(p*120).toFixed(1)+"deg) scale("+(.9+p*.35).toFixed(3)+")";
+ if(g0){g0.style.transform="scale("+(.78+p*.9).toFixed(3)+")";g0.style.opacity=(.85-sm((p-.75)/.25)*.6).toFixed(3)}
+ if(r0)r0.style.transform="rotate("+(p*120).toFixed(1)+"deg) scale("+(.9+p*.35).toFixed(3)+")";
  cue.style.opacity=clamp(1-p*8,0,1).toFixed(2);
 }
 /* c1 */
