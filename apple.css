@@ -1,0 +1,10 @@
+/* موبایل: عکس‌های برنامه بزرگ و تمام‌عرض، مثل صفحه‌ی محصولات اپل */
+@media(max-width:899px){
+ .cin .cn-p0{--h:min(60vh,520px)}
+ .cin .cn-p2{--h:calc((min(90vw,540px) - 14px)/.462);left:50%;top:calc(env(safe-area-inset-top) + 232px);margin-top:0}
+ .cin .cn-pl,.cin .cn-pr,.cin .cn-pc{--h:calc((min(86vw,520px) - 14px)/.462);top:calc(env(safe-area-inset-top) + 292px);margin-top:0}
+ .cin .cn-caps{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));height:auto;min-height:156px;padding:16px 18px;border-radius:24px;background:rgba(14,10,6,.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);z-index:4}
+ .cin .cn-cap{position:absolute;left:18px;right:18px;top:16px}
+ .cin .cn-c2 .cn-pin::after,.cin .cn-c3 .cn-pin::after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,#0b0806 92%);pointer-events:none;z-index:1}
+ .cin .cn-c3 .cn-pin::after{height:0}
+}

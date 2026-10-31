@@ -391,7 +391,7 @@ function prog(s){var r=s.getBoundingClientRect(),vh=window.innerHeight;return cl
 var c0copy=$(".cn-c0 .cn-copy"),p0=$(".cn-p0"),g0=$(".cn-c0 .cn-glow"),r0=$(".cn-c0 .cn-rings"),cue=$(".cn-cue");
 function paint0(){
  var p=prog(secs[0]),vh=window.innerHeight,vw=window.innerWidth,wide=vw>=900,e=sm(p/0.8);
- var nx=wide?(1-e)*vw*.2:0,ny=wide?(1-e)*-vh*.0:(1-e)*vh*.31,s=wide?(.94+.06*e):(.86+.14*e);
+ var nx=wide?(1-e)*vw*.2:0,ny=wide?(1-e)*-vh*.0:(1-e)*vh*.31,s=wide?(.94+.06*e):(.86+.58*e);
  p0.style.transform="translate3d("+nx.toFixed(1)+"px,"+ny.toFixed(1)+"px,0) scale("+s.toFixed(3)+")";
  p0.style.opacity=(1-sm((p-0.9)/0.1)).toFixed(3);
  var co=1-sm(p/0.42);
