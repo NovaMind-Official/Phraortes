@@ -90,6 +90,32 @@
   <p class="rv" style="--d:.26s;margin-top:26px"><a class="lm" href="tools.html">Explore every tool<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a></p></div>
   <div class="rv" style="--d:.1s"><div class="dev"><div class="dev-in"><div class="chat"><div class="q">Build a 12 V circuit with two resistors in parallel and a lamp.</div><div class="mnt" data-w="hero"></div></div></div></div></div>
 </div></section>
+<section class="aura-s t-dark" id="aura" data-sec="why" data-theme="dark"><style>
+.aura-s{background:#050407;color:#f3eee4;padding:120px 0;overflow:hidden;position:relative;--a:#E8C468;--b:#C9722E;--c:#7A2E2E}
+.aura-s .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.aura-s h2{font-size:clamp(34px,5vw,60px);line-height:1.04;margin:10px 0 18px}.aura-s h2 em{color:var(--a);transition:color .6s}
+.aura-s p.lead{opacity:.7;max-width:46ch;line-height:1.6}
+.au-demo{position:relative;aspect-ratio:1;max-width:460px;width:100%;margin:0 auto;display:grid;place-items:center}
+.au-demo:before{content:"";position:absolute;inset:-10%;background:radial-gradient(circle,var(--c) 0,transparent 62%);opacity:.55;transition:background .6s}
+.au-orb{position:relative;width:52%;aspect-ratio:1;border-radius:46% 54% 52% 48%/52% 46% 54% 48%;background:radial-gradient(circle at 34% 28%,#fff8dc,var(--a) 38%,var(--b) 72%,transparent 100%);box-shadow:0 0 90px color-mix(in srgb,var(--a) 50%,transparent);animation:auMorph 7s ease-in-out infinite,auPulse 3.4s ease-in-out infinite;transition:background .6s,box-shadow .6s}
+.au-orb:after{content:"";position:absolute;inset:-14%;border-radius:50%;border:1px solid var(--a);opacity:.4;animation:auRp 3.4s ease-out infinite}
+@keyframes auMorph{50%{border-radius:55% 45% 44% 56%/44% 56% 46% 54%}}@keyframes auPulse{50%{transform:scale(1.07)}}@keyframes auRp{from{transform:scale(.9);opacity:.5}to{transform:scale(1.6);opacity:0}}
+.au-cap2{position:absolute;bottom:-4%;left:0;right:0;text-align:center;font-size:18px;min-height:56px}.au-cap2 span{opacity:.3;transition:opacity .25s}.au-cap2 span.on{opacity:1}
+.au-ch{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}.au-ch button{height:40px;padding:0 16px;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;font:600 14px inherit;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:8px;transition:.25s}
+.au-ch button i{width:9px;height:9px;border-radius:50%;background:var(--d)}.au-ch button.on{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4)}
+.au-ft{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}.au-ft li{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:14px;line-height:1.45}.au-ft b{display:block;margin-bottom:3px;font-size:15px}
+@media(max-width:820px){.aura-s .au-demo{order:-1;max-width:340px}.aura-s{padding:80px 0}.aura-s .wrap{grid-template-columns:1fr;gap:34px}.au-ft{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.au-orb,.au-orb:after{animation:none}}
+</style><div class="wrap">
+<div><p class="kick rv">Aura voice</p><h2 class="rv" style="--d:.06s">Talk to your tutor. <em>It talks back.</em></h2><p class="lead rv" style="--d:.12s">A full-screen voice call with a living orb, live captions that follow every word, and five personalities. Interrupt any time with a tap.</p>
+<div class="au-ch rv" id="auCh" style="--d:.18s"><button class="on" data-c="#E8C468,#C9722E,#7A2E2E" data-t="Warm and friendly. What shall we explore?" style="--d:#E8C468">Nova</button><button data-c="#7C9CFF,#3B5BDB,#16306B" data-t="Calm and precise. How may I assist?" style="--d:#7C9CFF">Atlas</button><button data-c="#3FBF8F,#2C8C6B,#154036" data-t="Patient. We will take it step by step." style="--d:#3FBF8F">Sage</button><button data-c="#E86A9A,#F6AD55,#6B3FD6" data-t="Quick and playful. Ready when you are!" style="--d:#E86A9A">Spark</button><button data-c="#FF6B3D,#F6AD55,#7A2E2E" data-t="Exam coach. Pick a topic, let us work." style="--d:#FF6B3D">Coach</button></div>
+<ul class="au-ft rv" style="--d:.24s"><li><b>Five modes</b>Tutor, quick answers, quiz me, free talk, interview practice.</li><li><b>Live captions</b>The word being spoken lights up as you listen.</li><li><b>Call summary</b>Duration, questions and a one-tap flashcards and quiz.</li><li><b>Hands-free or push</b>Talk naturally, or press when you are ready.</li></ul>
+<p class="rv" style="--d:.3s;margin-top:26px"><a class="lm" href="tools.html#voice">How voice works<svg viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5L6.5 6l-5 4.5"/></svg></a> <small style="opacity:.5;margin-left:12px">Shahanshah plan</small></p></div>
+<div class="au-demo rv" style="--d:.1s"><div class="au-orb" id="auOrb"></div><div class="au-cap2" id="auCap">Warm and friendly. What shall we explore?</div></div>
+</div><script>(function(){var s=document.getElementById("aura"),b=s.querySelectorAll("#auCh button"),cap=document.getElementById("auCap"),tm;
+function say(t){clearInterval(tm);cap.innerHTML=t.split(" ").map(function(w){return"<span>"+w+"</span> "}).join("");var sp=cap.children,i=0;tm=setInterval(function(){if(i>=sp.length){clearInterval(tm);return}sp[i++].className="on"},230)}
+b.forEach(function(x){x.onclick=function(){s.__u=1;b.forEach(function(y){y.classList.remove("on")});x.classList.add("on");var c=x.dataset.c.split(",");s.style.setProperty("--a",c[0]);s.style.setProperty("--b",c[1]);s.style.setProperty("--c",c[2]);say(x.dataset.t)}});
+if("IntersectionObserver"in window)new IntersectionObserver(function(e,o){if(e[0].isIntersecting){if(!s.__u)say(b[0].dataset.t);o.disconnect()}},{threshold:.4}).observe(s)})()</script></section>
 <section class="why t-dark" id="why" data-sec="why" data-theme="dark"><div class="wrap">
   <div class="sec-h"><p class="kick rv">Why Phraortes</p><h2 class="rv" style="--d:.06s">Not another <em>chatbot.</em></h2><p class="rv" style="--d:.14s">A chatbot describes science. Phraortes puts it in your hands.</p></div>
   <div class="cmp">
@@ -121,7 +147,7 @@
     <div class="plan rv"><h3>Free</h3><div class="price">$0</div><ul><li>Prime core</li><li>A limited number of messages per period</li><li>All graphs, simulations and molecules</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
     <div class="plan rv" style="--d:.08s"><h3>Satrap</h3><div class="price">$14.99<small>/mo</small></div><ul><li>Everything in Free</li><li>Intellect core, no message cap</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
     <div class="plan hot rv" style="--d:.16s"><h3>Immortal</h3><div class="price">$49.99<small>/mo</small></div><ul><li>Everything in Satrap</li><li>Apex core for deep reasoning and code</li><li>Larger file uploads</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
-    <div class="plan rv" style="--d:.24s"><h3>Shahanshah</h3><div class="price">$119.99<small>/mo</small></div><ul><li>Everything in Immortal</li><li>Sovereign core</li><li>Aura voice chat</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
+    <div class="plan rv" style="--d:.24s"><h3>Shahanshah</h3><div class="price">$119.99<small>/mo</small></div><ul><li>Everything in Immortal</li><li>Sovereign core</li><li>Aura voice: 5 personalities, live captions</li></ul><a class="btn" href="https://novamind-official.github.io/">Start</a></div>
   </div>
   <p class="note">Payment is in USDT (BEP-20 network) and confirms automatically. Plans and limits may change. <a href="pricing.html" style="text-decoration:underline">Full plan details →</a></p>
 </div></section>
