@@ -1,7 +1,7 @@
 /* ═══ HERO v5 — living knowledge field + live AI demo ═══ */
 :root{--hx-serif:"Instrument Serif","New York",ui-serif,Georgia,serif;--hx-sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;--hx-mono:"Space Mono",ui-monospace,Menlo,monospace}
 .cn-c0 .cn-bg.hx-bg{background:radial-gradient(90% 70% at 72% 28%,#16111f 0%,#09070c 68%,#060507 100%);overflow:hidden}
-.hx-a{position:absolute;border-radius:50%;filter:blur(54px);will-change:transform}
+.hx-a{position:absolute;border-radius:50%;will-change:transform}
 .hx-a.a1{width:62vmax;height:62vmax;left:-22vmax;top:-28vmax;background:radial-gradient(closest-side,rgba(232,184,74,.2),transparent);animation:hxA1 26s ease-in-out infinite alternate}
 .hx-a.a2{width:56vmax;height:56vmax;right:-24vmax;top:-12vmax;background:radial-gradient(closest-side,rgba(86,200,255,.15),transparent);animation:hxA2 32s ease-in-out infinite alternate}
 .hx-a.a3{width:52vmax;height:52vmax;left:18vmax;bottom:-34vmax;background:radial-gradient(closest-side,rgba(150,110,255,.17),transparent);animation:hxA3 28s ease-in-out infinite alternate}
@@ -36,7 +36,7 @@
 .hx-ask button{position:absolute;right:5px;top:5px;width:36px;height:36px;border-radius:50%;border:0;background:linear-gradient(135deg,#f6d27a,#c8932e);color:#14100a;font:700 17px var(--hx-sans);cursor:pointer}
 /* phone */
 .cn-c0 .cn-p0{--h:min(60vh,540px);z-index:2}
-.cn-c0 .cn-p0::before{content:"";position:absolute;inset:-16%;border-radius:50%;background:radial-gradient(closest-side,rgba(127,215,255,.22),rgba(232,184,74,.1) 55%,transparent);filter:blur(24px);z-index:-1;opacity:.55;transition:opacity .6s}
+.cn-c0 .cn-p0::before{content:"";position:absolute;inset:-16%;border-radius:50%;background:radial-gradient(closest-side,rgba(127,215,255,.22),rgba(232,184,74,.1) 55%,transparent);z-index:-1;opacity:.55;transition:opacity .6s}
 .cn-c0 .cn-p0.hx-think::before{opacity:1;animation:hxThink 1.6s ease-in-out infinite}
 @keyframes hxThink{50%{transform:scale(1.08)}}
 .cn-c0 .cn-p0::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:5;background:linear-gradient(115deg,transparent calc(var(--sh,30%) - 18%),rgba(255,255,255,.12) var(--sh,30%),transparent calc(var(--sh,30%) + 18%))}

@@ -16,10 +16,10 @@
 <link rel="icon" type="image/png" href="https://novamind-official.github.io/icon-192.png">
 <link rel="apple-touch-icon" href="https://novamind-official.github.io/apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Phraortes","url":"https://novamind-official.github.io/Phraortes/","description":"AI study assistant for math, physics and chemistry with interactive graphs, molecules and circuits."}</script>
-<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css">
+<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css"></noscript>
 <link rel="stylesheet" href="site.css"><link rel="stylesheet" href="lux.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Phraortes","url":"https://novamind-official.github.io/Phraortes/","description":"AI study assistant for math, physics and chemistry with interactive graphs, molecules and circuits."}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="hero.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript><link rel="stylesheet" href="hero.css">
 <link rel="stylesheet" href="apple.css"></head>
 <body class="lux">
 <header class="nav" id="nav">
@@ -180,7 +180,7 @@ if("IntersectionObserver"in window)new IntersectionObserver(function(e,o){if(e[0
 </main><button class="up" id="up" aria-label="Back to top"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="rg" cx="29" cy="29" r="25"/><circle class="pg" id="upg" cx="29" cy="29" r="25"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <footer data-theme="dark"><div class="wrap"><span>© Phraortes</span><a href="https://novamind-official.github.io/">Try it free</a><a href="how-it-works.html">How it works</a><a href="features.html">Features</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><a href="story.html">Story</a><a href="changelog.html">Changelog</a><span class="sp"></span><span>AI can make mistakes. Check important results.</span></div></footer>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
-<script src="https://novamind-official.github.io/katex.min.js"></script>
+<script defer src="https://novamind-official.github.io/katex.min.js"></script>
 <script>
 (function(){
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
@@ -189,7 +189,7 @@ if("IntersectionObserver"in window)new IntersectionObserver(function(e,o){if(e[0
   window.PHR_inline=function(t){var parts=String(t==null?"":t).split("$");return parts.map(function(p,i){return i%2?tex(p,false):esc(p).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}).join("")};
 })();
 </script>
-<script src="https://novamind-official.github.io/artifacts.js"></script>
-<script src="site.js"></script>
+<script defer src="https://novamind-official.github.io/artifacts.js"></script>
+<script defer src="site.js"></script>
 <script src="lux.js" defer></script><script src="hero.js" defer></script></body>
 </html>

@@ -1,3 +1,6 @@
+/* one scroll listener, one requestAnimationFrame per frame for the whole site */
+var PH=window.PH||(window.PH={fns:[],q:0,on:function(f){this.fns.push(f)}});
+window.addEventListener("scroll",function(){if(!PH.q){PH.q=1;requestAnimationFrame(function(){PH.q=0;for(var i=0;i<PH.fns.length;i++){try{PH.fns[i]()}catch(e){}}})}},{passive:true});
 (function(){
 "use strict";
 document.documentElement.classList.add("js");
@@ -142,7 +145,7 @@ function frame(){
   stage.style.transform="scale("+(0.86+0.14*p).toFixed(4)+")"; stage.style.borderRadius=(46-10*p).toFixed(1)+"px";
 }
 var tick=false;
-window.addEventListener("scroll",function(){ if(!tick){tick=true;requestAnimationFrame(frame)} },{passive:true});
+PH.on(frame);
 window.addEventListener("resize",frame);
 
 
@@ -157,7 +160,7 @@ function upState(){
   up.classList.toggle("dk",th==="dark");
 }
 up.addEventListener("click",function(){window.scrollTo({top:0,behavior:still?"auto":"smooth"})});
-window.addEventListener("scroll",upState,{passive:true});
+PH.on(upState);
 /* rail */
 var rail=document.getElementById("rail");
 if(rail){
@@ -464,7 +467,7 @@ function frame(){
 }
 var tk=false;
 function req(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;frame()})}}
-window.addEventListener("scroll",req,{passive:true});window.addEventListener("resize",req);
+PH.on(frame);window.addEventListener("resize",req);
 frame();
 /* "See how it works" smooth to the statement chapter */
 })();
