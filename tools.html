@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="https://novamind-official.github.io/icon-192.png">
 <link rel="apple-touch-icon" href="https://novamind-official.github.io/apple-touch-icon.png">
-<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css">
+<link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://novamind-official.github.io/katex.min.css"></noscript>
 <link rel="stylesheet" href="site.css"><link rel="stylesheet" href="lux.css">
 </head>
 <body class="lux">
@@ -96,7 +96,7 @@
     <div class="tr rv"><small>B</small><h3>Read any page</h3><p>Give it a link and ask about what is inside.<em class="ex">“Summarize https://example.com/article in 5 points”</em><span class="rs">Opens the page and answers from what is actually on it.</span></p></div>
     <div class="tr rv"><small>C</small><h3>Weather &amp; prices</h3><p>Live weather and crypto prices in one line.<em class="ex">“Weather in Tokyo, and the Bitcoin price”</em><span class="rs">Two live look-ups, one short answer.</span></p></div>
     <div class="tr rv"><small>D</small><h3>Files</h3><p>Each chat has its own workspace for your files.<em class="ex">“Put these notes in a file called plan.md”</em><span class="rs">Each chat keeps its own files, ready to download.</span></p></div>
-    <div class="tr rv" id="voice"><small>E</small><h3>Voice</h3><p>Talk to Aura in a full-screen call: pick one of five personalities and a mode, watch live captions, interrupt with a tap. Shahanshah plan.<em class="ex">Tap the orb, speak, listen</em><span class="rs">Talk to Aura and hear the answer back. Shahanshah plan.</span></p></div>
+    <div class="tr rv" id="voice"><small>E</small><h3>Voice</h3><p>Talk to Aura in a full-screen call: pick one of five personalities and a mode, watch live captions, interrupt with a tap. Max plan.<em class="ex">Tap the orb, speak, listen</em><span class="rs">Talk to Aura and hear the answer back. Max plan.</span></p></div>
     <div class="tr rv"><small>F</small><h3>Images</h3><p>Describe it and get an image right in the chat.<em class="ex">“An image of a cell dividing, textbook style”</em><span class="rs">The picture appears right in the chat.</span></p></div>
   </div>
 </div></section>
@@ -117,7 +117,7 @@
 </main><button class="up" id="up" aria-label="Back to top"><svg viewBox="0 0 58 58" aria-hidden="true"><circle class="rg" cx="29" cy="29" r="25"/><circle class="pg" id="upg" cx="29" cy="29" r="25"/></svg><svg class="ar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 <footer data-theme="dark"><div class="wrap"><span>© Phraortes</span><a href="https://novamind-official.github.io/">Try it free</a><a href="how-it-works.html">How it works</a><a href="features.html">Features</a><a href="tools.html">Tools</a><a href="compare.html">Compare</a><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a><a href="story.html">Story</a><a href="changelog.html">Changelog</a><span class="sp"></span><span>AI can make mistakes. Check important results.</span></div></footer>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
-<script src="https://novamind-official.github.io/katex.min.js"></script>
+<script defer src="https://novamind-official.github.io/katex.min.js"></script>
 <script>
 (function(){
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
@@ -126,7 +126,7 @@
   window.PHR_inline=function(t){var parts=String(t==null?"":t).split("$");return parts.map(function(p,i){return i%2?tex(p,false):esc(p).replace(/\*\*(.+?)\*\*/g,"<b>$1</b>")}).join("")};
 })();
 </script>
-<script src="https://novamind-official.github.io/artifacts.js"></script>
-<script src="site.js"></script>
+<script defer src="https://novamind-official.github.io/artifacts.js"></script>
+<script defer src="site.js"></script>
 <script src="lux.js" defer></script></body>
 </html>

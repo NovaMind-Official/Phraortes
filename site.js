@@ -204,7 +204,7 @@ var CATS=[
  {id:"plans",t:"Plans & payment",ic:"pay",c:"var(--sky)",topic:"Billing",qs:[
   {q:"How do I pay?",a:"Payment is in <b>USDT on the BEP-20 network</b>. Pick a plan in the app, send the payment to the address shown there, and paste the transaction hash. It confirms automatically. There is no card option yet.",pop:1},
   {q:"I paid, but my plan did not activate",k:"payment confirm confirmed pending verify stuck transaction hash usdt crypto not working activated",a:"First, check these:<ol><li>The payment was sent on <b>BEP-20</b> (BNB Smart Chain), not another network.</li><li>The amount is at least the plan price, and it went to the address shown in the app.</li><li>Wait a few minutes for the network to confirm, then press verify again.</li></ol>Still stuck? Email us the <b>transaction hash</b> and the plan you chose, and we will look into it.",pop:1,need:"Billing"},
-  {q:"Which plan should I choose?",a:"Start free. Move up when you need more depth: <b>Satrap</b> removes the message cap, <b>Immortal</b> adds deeper reasoning, code and larger uploads, and <b>Shahanshah</b> adds the most powerful core and voice chat. See <a href=\"pricing.html\">Pricing</a> for the full table."},
+  {q:"Which plan should I choose?",a:"Start free. Move up when you need more depth: <b>Plus</b> removes the message cap, <b>Pro</b> adds deeper reasoning, code and larger uploads, and <b>Max</b> adds the most powerful core and voice chat. See <a href=\"pricing.html\">Pricing</a> for the full table."},
   {q:"Are prices monthly? Can they change?",a:"Prices on this site are per month. Plans and limits may change over time, so the app always shows the current details."},
   {q:"Can I get my payment back?",a:"Payments on the blockchain cannot be reversed automatically. If something went wrong, such as a wrong plan or a double payment, email us with the transaction hash and we will look at it.",need:"Billing"}
  ]},
@@ -226,7 +226,7 @@ var CATS=[
   {q:"It says “Free plan limit reached”",k:"quota messages left blocked cannot send reset",a:"The free plan has a limited number of messages per period. The app shows when it resets. To remove the limit, choose a paid plan in the app."},
   {q:"A menu or button does not open",k:"tools broken click tap bug sidebar not working",a:"Close the app completely, then open it again so it can load the latest version. On iPhone or iPad: swipe the app away from the app switcher and reopen it. Still the same? Email us your device and what you tapped.",need:"Problem"},
   {q:"The app looks old after an update",a:"Close it fully and reopen it. If it still looks old, clear this site’s data in Safari settings and open it again. Your plan stays, but chats stored in this browser are removed."},
-  {q:"The microphone or voice does not work",a:"Allow microphone access for this site in your browser settings, then reload the app. Voice chat with Aura is part of the Shahanshah plan."}
+  {q:"The microphone or voice does not work",a:"Allow microphone access for this site in your browser settings, then reload the app. Voice chat with Aura is part of the Max plan."}
  ]},
  {id:"ideas",t:"Ideas & teams",ic:"idea",c:"var(--sand)",topic:"Idea",qs:[
   {q:"I have an idea for a feature",a:"We would love to hear it. Tell us what you wish Phraortes did, and what you were trying to learn when you wished for it.",need:"Idea"},
