@@ -4,3 +4,4 @@ if(!rm){addEventListener('scroll',function(){tk||(tk=requestAnimationFrame(u))},
 var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 })();
+(function(){var b=document.getElementById('abg'),m=document.getElementById('amenu');if(!b)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);m.classList.toggle('on',o)});m.addEventListener('click',function(e){if(e.target.tagName==='A'){b.setAttribute('aria-expanded','false');m.classList.remove('on')}})})();

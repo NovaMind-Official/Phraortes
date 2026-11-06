@@ -1,0 +1,33 @@
+:root{--g:#E8C468;--t:#f5f2ea;--m:#a39d8f}
+
+.an{position:fixed;inset:0 0 auto;height:48px;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 max(16px,env(safe-area-inset-left));background:rgba(10,9,7,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+
+.ab{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px}
+.ab img{border-radius:6px}
+
+.an nav{display:flex;gap:26px;font-size:12.5px;color:#d6d1c4}
+.an nav a{opacity:.8;transition:opacity .2s}
+.an nav a:hover{opacity:1}
+
+.ag{font-size:12.5px;font-weight:600;background:var(--g);color:#1a1405;padding:6px 14px;border-radius:99px}
+@media(max-width:860px){.an nav{display:none}}
+
+.af{border-top:1px solid rgba(255,255,255,.08);padding:30px 20px 40px;font-size:13px;color:var(--m);text-align:center}
+.af div{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-bottom:16px}
+.af a:hover{color:var(--t)}
+
+.afg{display:flex;flex-wrap:wrap;gap:40px;max-width:900px;margin:0 auto 26px;text-align:left;justify-content:center}
+.afg div{display:flex;flex-direction:column;gap:9px;min-width:130px}
+.afg b{color:var(--t);font-size:13px;margin-bottom:4px}
+
+.abg{display:none;background:none;border:0;padding:0;width:34px;height:34px;position:relative}
+.abg i,.abg i::before{content:"";position:absolute;left:8px;right:8px;height:1.5px;background:#f5f2ea;transition:.3s}
+.abg i{top:16px}
+.abg i::before{left:0;right:0;top:-6px}
+.abg[aria-expanded=true] i{background:transparent}
+.abg[aria-expanded=true] i::before{top:0;transform:rotate(45deg)}
+
+.amenu{position:fixed;inset:48px 0 auto;background:rgba(10,9,7,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:49;padding:10px 24px 24px;display:none;flex-direction:column}
+.amenu.on{display:flex}
+.amenu a{padding:14px 0;font-size:22px;font-weight:600;border-bottom:1px solid rgba(255,255,255,.07)}
+@media(max-width:860px){.abg{display:block}.ag{margin-left:auto}.an{justify-content:flex-start}}
