@@ -216,3 +216,15 @@ document.addEventListener('visibilitychange',function(){vis=!document.hidden;if(
 resize();start();
 window.PHR_H3={setP:function(v){/* test hook */},obj:OBJ};
 })();
+
+/* v23 — Coach & Mission interactions */
+(function(){try{
+  var q=function(s){return document.querySelector(s)};
+  var ask=q("#cx-ask");if(ask){var fb=ask.querySelector(".cx-fb"),os=ask.querySelectorAll(".cx-o"),done=false;os.forEach(function(b){b.addEventListener("click",function(){if(done)return;done=true;var ok=b.getAttribute("data-r")==="1";os.forEach(function(x){if(x.getAttribute("data-r")==="1")x.classList.add("ok")});if(!ok)b.classList.add("no");fb.textContent=ok?"Right. The weight is balanced by the normal force.":"Not quite. The table pushes back, so the forces cancel."})})}
+  var rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function start(c){c.classList.add("cx-in");
+    if(c.id==="cx-exam"){var rg=q("#cx-rg");if(rg)rg.style.strokeDashoffset=String(214*(1-.82));var t=q("#cx-t"),s=720;if(!rm)setInterval(function(){s--;if(s<0)s=720;t.textContent=Math.floor(s/60)+":"+("0"+s%60).slice(-2)},1000)}
+    if(c.id==="cx-mi"){var li=c.querySelectorAll("#cx-st li"),m=q("#cx-mt"),i=0;(function step(){if(i>=li.length){setTimeout(function(){li.forEach(function(x){x.classList.remove("x")});m.style.width="0";i=0;setTimeout(step,900)},2200);return}li[i].classList.add("x");i++;m.style.width=(i/li.length*100)+"%";setTimeout(step,rm?0:1100)})()}}
+  var cs=document.querySelectorAll(".cx-c");if(!("IntersectionObserver" in window)){cs.forEach(start);return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){start(e.target);io.unobserve(e.target)}})},{threshold:.35});cs.forEach(function(c){io.observe(c)});
+}catch(e){}})();
