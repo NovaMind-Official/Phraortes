@@ -1,0 +1,45 @@
+/* Phraortes Learn page — scroll-driven knowledge map */
+body.ap{background:#0b0907}
+.lm-hero{padding:118px 20px 30px;text-align:center}
+.lm-hero h1{font-size:clamp(40px,7.4vw,92px);max-width:10em;margin:0 auto}
+.lm-hero .sub{max-width:30em}
+.lm-meta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.lm-meta span{font:500 13px/1 "Inter Tight",sans-serif;color:#cfc9bb;padding:9px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04)}
+.lm{max-width:1120px;margin:0 auto;padding:10px 20px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.lm-map{position:sticky;top:76px;height:calc(100vh - 100px);height:calc(100svh - 100px);max-height:700px;display:flex;align-items:center;justify-content:center}
+.lm-map svg{width:100%;height:100%;overflow:visible}
+.lm-steps{padding:4vh 0 10vh}
+.lm-step{min-height:72vh;display:flex;align-items:center;opacity:.45;transition:opacity .6s var(--ease)}
+.lm-step.on{opacity:1}
+.lm-card{display:block;width:100%;padding:28px 26px 26px;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.09);text-decoration:none;color:inherit;transition:border-color .5s,transform .6s var(--ease),box-shadow .6s}
+.lm-step.on .lm-card{border-color:rgba(232,196,104,.45);box-shadow:0 30px 80px -30px rgba(232,196,104,.25)}
+.lm-card .n{font:500 13px/1 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E8C468;margin:0 0 14px}
+.lm-card h3{font-size:clamp(26px,3.4vw,38px);line-height:1.08}
+.lm-card p{margin:14px 0 0;color:#a39d8f;font-size:17px;line-height:1.5}
+.lm-card .go{display:inline-block;margin-top:20px;color:#E8C468;font-size:17px}.lm-card .go::after{content:" ›"}
+a.lm-card:hover{transform:translateY(-3px)}
+.lm-card.intro h3{font-size:clamp(28px,3.6vw,42px)}
+/* svg */
+.m-e0{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2;stroke-linecap:round}
+.m-e1{fill:none;stroke:#E8C468;stroke-width:3;stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(232,196,104,.6))}
+.m-gh{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.5;stroke-dasharray:3 6;stroke-linecap:round}
+.m-n circle.d{fill:#14110c;stroke:rgba(255,255,255,.25);stroke-width:2;transition:fill .5s,stroke .5s}
+.m-n text{font:600 15px "Inter Tight",sans-serif;fill:#6f6a5e;transition:fill .5s;letter-spacing:-.01em}
+.m-n text.s{font:500 11px "Inter Tight",sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.m-n .pu{fill:none;stroke:#E8C468;stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.m-n.done circle.d{fill:#E8C468;stroke:#E8C468}.m-n.done text{fill:#f5f2ea}
+.m-n.cur .pu{opacity:1;animation:lmpulse 1.8s ease-out infinite}
+@keyframes lmpulse{from{transform:scale(1);opacity:.9}to{transform:scale(2.3);opacity:0}}
+.m-n{cursor:pointer;outline:none}.m-n:focus-visible circle.d{stroke:#fff;stroke-width:3}
+.m-g circle{fill:#0b0907;stroke:rgba(255,255,255,.2);stroke-width:1.5;stroke-dasharray:2 4}.m-g text{font:500 12px "Inter Tight",sans-serif;fill:#5d584d}
+.m-t{fill:#fff8e0;filter:drop-shadow(0 0 8px #E8C468) drop-shadow(0 0 16px rgba(232,196,104,.8))}
+.lm-nojs .m-e1{stroke-dasharray:none}
+.lm-cta{padding:100px 20px 120px;text-align:center}.lm-cta h2{font-size:clamp(36px,6vw,76px)}.lm-cta p{color:#a39d8f;font-size:19px;margin:16px 0 0}
+.lm-cta a{display:inline-block;margin-top:30px;background:#f3eee4;color:#15110a;font:600 16px/1 "Inter Tight",sans-serif;padding:14px 26px;border-radius:99px;text-decoration:none}
+@media(max-width:860px){
+ .lm{display:block;padding:0 16px 20px}
+ .lm-map{position:sticky;top:48px;z-index:5;height:min(36svh,290px);max-height:none;overflow:hidden;margin:0 -16px;padding:6px 16px 0;background:linear-gradient(#0b0907 93%,rgba(11,9,7,0))}
+ .lm-map svg{overflow:hidden}.lm-steps{padding:2vh 0 8vh}.lm-step{min-height:58vh;align-items:flex-start;padding-top:6vh}
+ .lm-hero{padding-top:96px}
+}
+@media(prefers-reduced-motion:reduce){.lm-step{transition:none;opacity:1}.m-n.cur .pu{animation:none}}
