@@ -97,7 +97,7 @@ var MET=[1,1,0],MAT=[.55,1,0],DIEL=[0,.9,0],GLOW=[0,.5,1.2];
 function Obj(name,desc){this.name=name;this.desc=desc;this.parts=[];this.s=0;this.spin=0;this.tilt=.35;this.vel=0;this.sx=0;this.sy=0;this.sr=40}
 Obj.prototype.part=function(g,alpha,anim){var ms=mesh(g);this.parts.push({ms:ms,alpha:alpha==null?1:alpha,anim:anim});return this};
 
-function flask(){var o=new Obj('Chemistry Lab','Titrations, pH curves and gas laws. Move the slider and the curve answers.'),g=new G(),gl2=new G();
+function flask(){var o=new Obj('Chemistry Lab','Volcanoes, acids, metals and titrations. Add reagents and watch the reaction happen.'),g=new G(),gl2=new G();
  var out=[[0,-.82],[.5,-.82],[.68,-.76],[.74,-.7],[.3,.28],[.27,.62],[.36,.7],[.36,.78],[.27,.78]],
      liq=[[0,-.78],[.5,-.78],[.64,-.72],[.69,-.67],[.52,-.3],[0,-.3]];
  gl2.add(lathe(out,36),null,[.75,.85,.95],[0,1.2,0]);
@@ -139,7 +139,47 @@ function benzene(){var o=new Obj('Molecules','Real 3D structures from a name, a 
   g.add(sphere(.15,18,12),tr(C[k][0],0,C[k][2]),[.16,.17,.2],[.9,1,0]);g.add(sphere(.085,14,10),tr(H[k][0],0,H[k][2]),WHITE,MAT)}
  g.add(torus(.3,.014,40,6),null,GOLD,MET);
  return o.part(g)}
-var OBJ=[flask(),geometry(),atom(),chip(),graph3(),benzene()];
+function stopwatch(){var o=new Obj('Timed Exams','A real clock, a real score, and a study plan built from what you missed.'),g=new G(),gl2=new G(),F=rx(PI/2);
+ g.add(torus(.6,.05,48,10),F,GOLD,MET);
+ g.add(lathe([[0,-.03],[.58,-.03],[.58,.03],[0,.03]],44),F,[.1,.11,.14],[.4,.9,0]);
+ for(var k=0;k<12;k++){var a=k/12*2*PI,L=k%3?.05:.1;g.add(box(.02,.012,L),mul(F,mul(ry(a),tr(0,.04,-.5+L/2))),WHITE,MAT)}
+ g.add(box(.035,.012,.3),mul(F,mul(ry(.9),tr(0,.05,-.15))),WHITE,MAT);
+ g.add(cyl(.09,.14,16),mul(F,tr(0,.02,-.74)),GOLD,MET);g.add(cyl(.04,.12,12),mul(F,tr(0,.02,-.66)),GOLD2,MET);
+ g.add(box(.08,.014,.14),mul(F,tr(0,.03,-.5)),[.35,.8,.55],[.8,.9,.4]);
+ o.part(g);
+ var h=new G().add(box(.014,.012,.46),mul(F,tr(0,.065,-.2)),[1,.4,.35],GLOW).add(sphere(.04,10,8),mul(F,tr(0,.065,0)),GOLD,MET);
+ o.part(h,1,function(t){return mul(F,mul(ry(t*1.6),rx(-PI/2)))});
+ return o}
+function kmap(){var o=new Obj('Knowledge Maps','A whole topic as a living map. Tap any node to go deeper.'),g=new G(),
+ P=[[0,0,0],[.75,.35,.1],[-.72,.4,-.1],[.2,-.78,.2],[-.3,-.62,-.35],[.62,-.4,-.4],[-.05,.82,.25]],E=[[0,1],[0,2],[0,3],[0,6],[3,4],[1,5],[2,4]];
+ E.forEach(function(e){var d=edge(P[e[0]],P[e[1]],.022,8);g.add(d.g,d.M,[.75,.76,.82],MAT)});
+ P.forEach(function(p,k){g.add(sphere(k?.12:.2,18,12),tr(p[0],p[1],p[2]),k?(k%3===0?VIO:WHITE):GOLD,k?MAT:MET)});
+ g.add(torus(.3,.012,40,6),mul(rx(PI/2),tr(0,0,0)),GOLD2,MET);
+ return o.part(g)}
+function terminal(){var o=new Obj('Python Computer','A computer inside the chat. It runs code, keeps files, and fixes its own errors.'),g=new G();
+ g.add(box(1.3,.9,.07),null,[.09,.1,.13],[.5,.95,0]);
+ g.add(box(1.16,.76,.02),tr(0,0,.045),[.04,.045,.06],[.2,.9,0]);
+ g.add(box(1.3,.08,.07),tr(0,.49,0),GOLD,MET);[-.52,-.44,-.36].forEach(function(x,k){g.add(sphere(.025,8,6),tr(x,.49,.045),k?WHITE:AMB,GLOW)});
+ var rows=[[.55,.3],[.8,.24],[.35,.18],[.62,.12],[.28,0],[.7,-.1],[.2,-.22]],y;
+ rows.forEach(function(r,k){g.add(box(r[0],.04,.012),tr(-.5+r[0]/2,r[1],.06),k%3?GOLD2:[.6,.85,1],GLOW)});
+ g.add(box(.06,.08,.012),tr(-.46,-.4,.06),WHITE,GLOW);
+ g.add(box(.4,.07,.5),tr(0,-.52,.2),[.12,.13,.16],MAT);
+ return o.part(g)}
+function mission(){var o=new Obj('Missions','Hand it a big goal. It plans the steps and works through them.'),g=new G();
+ for(var k=0;k<4;k++){g.add(box(.46,.14+k*.2,.5),tr(-.7+k*.46,-.45+(.14+k*.2)/2-.07+0,0),k===3?GOLD:[.2+k*.1,.21+k*.1,.26+k*.08],k===3?MET:MAT)}
+ g.add(box(.025,.62,.025),tr(.68,.55,0),WHITE,MAT);g.add(box(.3,.18,.012),tr(.83,.78,0),VIO,[.4,.9,.5]);g.add(sphere(.05,10,8),tr(.68,.88,0),GOLD,MET);
+ return o.part(g)}
+function research(){var o=new Obj('Deep Research','Dozens of sources, read and checked. Every claim shows its evidence.'),g=new G(),gl2=new G(),F=rx(PI/2);
+ g.add(torus(.45,.06,48,10),F,GOLD,MET);
+ var d=edge([.32,-.32,0],[.82,-.82,0],.075,12);g.add(d.g,d.M,[.18,.19,.23],MAT);g.add(torus(.08,.02,16,6),tr(.4,-.4,0),GOLD2,MET);
+ for(var k=0;k<5;k++){g.add(box(.5-k*.07,.03,.012),tr(-.05+(k%2)*.03,.22-k*.12,-.04),[.85,.88,.95],MAT)}
+ gl2.add(lathe([[0,-.02],[.43,-.02],[.43,.02],[0,.02]],40),F,[.7,.85,1],[.3,.8,0]);
+ return o.part(g).part(gl2,.3)}
+function cards(){var o=new Obj('Smart Cards','Spaced review that remembers when you will forget.'),g=new G();
+ for(var k=0;k<5;k++){var c=k===4?GOLD:(k%2?[.9,.9,.95]:[.42,.4,.78]);g.add(box(1.05,.045,.72),mul(tr(0,-.34+k*.17,0),ry(-.5+k*.22)),c,k===4?MET:MAT)}
+ g.add(box(.5,.01,.04),mul(tr(0,.355,.0),ry(-.5+4*.22)),[.15,.1,.02],MAT);g.add(box(.3,.01,.04),mul(tr(.1,.355,.1),ry(-.5+4*.22)),[.15,.1,.02],MAT);
+ return o.part(g)}
+var OBJ=[flask(),stopwatch(),geometry(),kmap(),atom(),terminal(),chip(),mission(),graph3(),research(),benzene(),cards()];var NO=OBJ.length;
 
 /* ---------- ribbon ---------- */
 var N=300,rib=(function(){var g={p:[],n:[],c:[],m:[],i:[]},k;for(k=0;k<N;k++){var t=k/(N-1),sh2=.9+.1*Math.sin(t*28);for(var s=0;s<2;s++){g.p.push(0,0,0);g.n.push(0,0,1);g.c.push(GOLD[0]*sh2,GOLD[1]*sh2,GOLD[2]*sh2);g.m.push(1,1,0)}}
@@ -199,10 +239,10 @@ function frame(now){raf=0;if(!vis)return;var dt=Math.min(.05,(now-last)/1000);la
  gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(pg);gl.uniformMatrix4fv(L.uVP,false,VP);gl.uniform3f(L.uCam,0,0,dist);gl.depthMask(true);
  draw(rib,Wm,1);
  var glass=[];
- OBJ.forEach(function(o,k){var sa=-PI/2+k*2*PI/6+time*.1,ap=backOut((pS-(.66+k*.022))/.12),sel_=sel===k&&ph===3?1:0;o.s+=(ap-o.s)*Math.min(1,dt*10);
+ OBJ.forEach(function(o,k){var sa=-PI/2+k*2*PI/NO+time*.1,ap=backOut((pS-(.64+k*(.22/NO)))/.12),sel_=sel===k&&ph===3?1:0;o.s+=(ap-o.s)*Math.min(1,dt*10);
   o.sel=(o.sel||0)+(sel_-(o.sel||0))*Math.min(1,dt*7);
   o.vel*=1-Math.min(1,dt*3);if(!drag||sel!==k)o.spin+=dt*(.5+o.vel*.0);o.spin+=o.vel*dt*.0;
-  var scl=Math.max(.0001,o.s)*(port?.6:.78)*(1+.2*o.sel),px=Math.cos(sa)*R,py=Math.sin(sa)*R,pz=o.sel*.9;
+  var scl=Math.max(.0001,o.s)*(port?.6:.78)*(NO>8?.82:1)*(1+.2*o.sel),px=Math.cos(sa)*R,py=Math.sin(sa)*R,pz=o.sel*.9;
   var base=mul(Wm,mul(tr(px,py,pz),mul(rx(o.tilt*(1-.4*o.sel)),mul(ry(o.spin),sc(scl)))));
   var cp=xf(Wm,px,py,pz),cl=[cp[0],cp[1],cp[2],1],cxw=VP[0]*cl[0]+VP[4]*cl[1]+VP[8]*cl[2]+VP[12],cyw=VP[1]*cl[0]+VP[5]*cl[1]+VP[9]*cl[2]+VP[13],cww=VP[3]*cl[0]+VP[7]*cl[1]+VP[11]*cl[2]+VP[15];
   o.sx=(cxw/cww*.5+.5)*W;o.sy=(1-(cyw/cww*.5+.5))*H;o.sr=.9*scl/(cww)*H/(2*Math.tan(fov/2));
