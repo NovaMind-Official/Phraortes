@@ -79,7 +79,7 @@ All app files live in the **same folder** (GitHub web upload on iPhone cannot cr
 
 ### Releasing an update
 1. Upload the changed files (replace the old ones).
-2. Make sure `sw.js` has a new `VERSION` (current: `phraortes-v2-58`) and that every new file is in `SHELL`.
+2. Make sure `sw.js` has a new `VERSION` (current: `phraortes-v2-57`) and that every new file is in `SHELL`.
 3. Open the site, close it fully and reopen it so the new version loads.
 
 ## Backend
