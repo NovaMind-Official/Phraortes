@@ -76,3 +76,26 @@
   $('#tm-b').addEventListener('click',function(){clearInterval(run);tm.classList.remove('ring');fg.style.strokeDashoffset=0;lab.textContent='17:00';sub.textContent='“Remind me at 5 pm to call Sara” → alarm set. One tap adds it to Calendar so it also rings when the app is closed.'});
  }
 })();
+
+/* ── console preview ── */
+(function(){
+ var box=document.getElementById('cnd');if(!box)return;
+ var log=document.getElementById('cd-log'),st=document.getElementById('cd-st'),g=document.getElementById('cd-bars');
+ var sleep=function(ms){return new Promise(function(r){setTimeout(r,ms)})},reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ var N=48,L=[],i,a,R=34,ns='http://www.w3.org/2000/svg';
+ for(i=0;i<N;i++){a=i/N*6.2832;var l=document.createElementNS(ns,'line');l.setAttribute('x1',60+Math.cos(a)*R);l.setAttribute('y1',60+Math.sin(a)*R);l.setAttribute('x2',60+Math.cos(a)*(R+3));l.setAttribute('y2',60+Math.sin(a)*(R+3));g.appendChild(l);L.push([l,a])}
+ var amp=.2,tgt=.2,t0=0;
+ function tick(t){amp+=(tgt-amp)*.08;L.forEach(function(p,k){var n=Math.abs(Math.sin(k*.9+t/260)*.5+Math.sin(k*2.3-t/180)*.5),len=3+n*16*amp,a=p[1];p[0].setAttribute('x2',60+Math.cos(a)*(R+len));p[0].setAttribute('y2',60+Math.sin(a)*(R+len))});requestAnimationFrame(tick)}
+ if(!reduce)requestAnimationFrame(tick);
+ var C={wake:['#d4a84b','AWAITING WAKE WORD',.2],cmd:['#6fe3a0','LISTENING',1],think:['#7fb2ff','PROCESSING',.5],say:['#e48cff','RESPONDING',.8]};
+ function mode(m){var c=C[m];box.style.setProperty('--c',c[0]);st.textContent=c[1];tgt=c[2]}
+ function add(k,tag,txt){var d=document.createElement('div');d.className=k;d.innerHTML='<b>'+tag+'</b><span></span>';d.lastChild.textContent=txt;log.appendChild(d);while(log.children.length>7)log.removeChild(log.firstChild)}
+ var S=[['open the board and plot y = x squared in red','board.draw','Board open. Plotted y = x² in red.'],['create a morning routine: weather, tasks, timer','brain.routine','Routine “morning” saved with 3 steps.'],['remember my gym is at 7 pm','brain.memory','Got it. Gym at 7 pm.'],['open my photos and analyse one','device.pick','Pick a photo. I will read it as soon as you choose.']];
+ var seen=false;new IntersectionObserver(function(e){if(e[0].isIntersecting&&!seen){seen=true;run()}},{threshold:.3}).observe(box);
+ async function run(){var n=0;mode('wake');add('s','SYS','agent core v2 … ok');await sleep(900);
+  while(true){var s=S[n++%S.length];mode('wake');await sleep(reduce?300:1100);add('s','SYS','wake word detected');mode('cmd');await sleep(500);
+   var d=document.createElement('div');d.className='u';d.innerHTML='<b>USR</b><span></span>';log.appendChild(d);for(var k=1;k<=s[0].length;k++){d.lastChild.textContent=s[0].slice(0,k);await sleep(reduce?0:30)}
+   mode('think');add('i','INT',s[1]);await sleep(350);add('e','EXE','dispatching → '+s[1].split('.')[0]);await sleep(700);
+   mode('say');add('o','OK',s[2]);await sleep(reduce?1500:2600);}
+ }
+})();
