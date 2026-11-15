@@ -5,9 +5,9 @@
  var said=$('#vt-said'),res=$('#vt-res'),st=$('#vt-state'),bars=[].slice.call(document.querySelectorAll('.vt-wave i'));
  var SCRIPT=[
   {t:'Hey Phraortes, remind me at 5 pm to call Sara',r:['⏰ 17:00 · Call Sara','＋ Add to Calendar']},
-  {t:'هی فراورتس، تایمر ۱۰ دقیقه',r:['⏱ 10:00','Ring + vibration']},
+  {t:'Hey Phraortes, start a ten minute timer',r:['⏱ 10:00','Ring + vibration']},
   {t:'Hey Phraortes, open the whiteboard and draw a cube',r:['▢ Whiteboard open','Drawing…']},
-  {t:'هی فراورتس، حالت تاریک رو روشن کن',r:['◐ Dark mode','Done']},
+  {t:'Hey Phraortes, switch to dark mode',r:['◐ Dark mode','Done']},
   {t:'Hey Phraortes, switch to Apex and quiz me on molar mass',r:['Core → Apex','Quiz ready']}
  ];
  var wv=0;function wave(on){clearInterval(wv);if(!on){bars.forEach(function(b){b.style.height='6px'});return}wv=setInterval(function(){bars.forEach(function(b){b.style.height=(5+Math.random()*22)+'px'})},110)}
@@ -15,7 +15,7 @@
   if(!said)return;var i=0;
   while(true){
    var s=SCRIPT[i%SCRIPT.length];i++;
-   said.textContent='';res.innerHTML='';said.classList.toggle('fa',/[؀-ۿ]/.test(s.t));
+   said.textContent='';res.innerHTML='';
    st.textContent='Waiting for “Hey Phraortes”';st.classList.remove('on');wave(false);await sleep(reduce?200:900);
    st.textContent='Listening';st.classList.add('on');wave(true);
    for(var k=1;k<=s.t.length;k++){said.textContent=s.t.slice(0,k);await sleep(reduce?0:38)}
@@ -54,8 +54,8 @@
     cy+=s.h+17;await sleep(reduce?100:1050);
    });
   }
-  var NAMES={line:['a straight line','خط صاف'],circle:['a circle','دایره'],cube:['a cube','مکعب'],star:['a star','ستاره'],heart:['a heart','قلب'],triangle:['a triangle','مثلث'],house:['a house','خونه']};
-  document.querySelectorAll('[data-sh]').forEach(function(b){b.addEventListener('click',function(){var n=b.dataset.sh;say('“Draw '+NAMES[n][0]+'.”  ·  «'+NAMES[n][1]+' بکش»');draw(n)})});
+  var NAMES={line:'a straight line',circle:'a circle',cube:'a cube',star:'a star',heart:'a heart',triangle:'a triangle',house:'a house'};
+  document.querySelectorAll('[data-sh]').forEach(function(b){b.addEventListener('click',function(){var n=b.dataset.sh;say('“Draw '+NAMES[n]+'.”');draw(n)})});
   var go=$('#wb-go');
   if(go)go.addEventListener('click',function(){
    clear();say('“Hey Phraortes, open the board. Draw a straight line, then a circle under it, then a cube.”');
