@@ -5,7 +5,8 @@
 (function () {
   "use strict";
   var LANGS = { en: { n: "English", dir: "ltr" }, fa: { n: "فارسی", dir: "rtl" }, de: { n: "Deutsch", dir: "ltr" } };
-  var V = "1", KEY = "phr_lang", dict = null, cur = "en", mo = null, busy = false;
+  var BASE = (function () { try { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^\/]*(\?.*)?$/, "") : "" } catch (e) { return "" } })();
+  var V = "2", KEY = "phr_lang", dict = null, cur = "en", mo = null, busy = false;
   var INL = /^(A|EM|STRONG|B|I|SPAN|SMALL|BR|MARK|SUP|SUB|U|KBD|Q|TIME|ABBR|S|WBR)$/;
   var SKIP = /^(SCRIPT|STYLE|NOSCRIPT|CANVAS|SVG|CODE|PRE|TEXTAREA|INPUT|SELECT|IFRAME|PATH)$/;
   var ATTR = ["alt", "title", "placeholder", "aria-label"];
@@ -80,9 +81,17 @@
     if (!LANGS[code]) code = "en";
     try { localStorage.setItem(KEY, code) } catch (e) { }
     if (code === "en") { cur = "en"; dict = null; revert(); meta(true); paint("en"); return Promise.resolve() }
-    return fetch("lang/" + code + ".json?v=" + V).then(function (r) { if (!r.ok) throw 0; return r.json() }).then(function (j) {
+    var urls = [BASE + "lang/" + code + ".json?v=" + V, "lang/" + code + ".json?v=" + V, BASE + code + ".json?v=" + V, BASE + "lang-" + code + ".json?v=" + V];
+    function tryLoad(i) {
+      if (i >= urls.length) return Promise.reject(0);
+      return fetch(urls[i]).then(function (r) { if (!r.ok) throw 0; return r.json() }).catch(function () { return tryLoad(i + 1) });
+    }
+    return tryLoad(0).then(function (j) {
       if (cur !== "en") revert(); dict = j; cur = code; apply(document.body); meta(false); paint(code); watch();
-    }).catch(function () { cur = "en"; dict = null; paint("en") });
+    }).catch(function () {
+      cur = "en"; dict = null; paint("en");
+      try { var t = document.createElement("div"); t.textContent = "Couldn't load lang/" + code + ".json — upload it into the \"lang\" folder."; t.style.cssText = "position:fixed;left:12px;right:12px;bottom:16px;z-index:99999;background:#1b1812;color:#f1ece0;border:1px solid #e8c468;border-radius:14px;padding:12px 14px;font:13px/1.4 -apple-system,system-ui,sans-serif;text-align:center"; document.body.appendChild(t); setTimeout(function () { t.remove() }, 6000) } catch (e) { }
+    });
   }
   function init() {
     var c = "en"; try { c = new URLSearchParams(location.search).get("lang") || localStorage.getItem(KEY) || "en" } catch (e) { }

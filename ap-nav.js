@@ -84,5 +84,5 @@ if(/^agent\.html$/.test(f)){var ab=an.querySelector('.anb.hot');if(ab)ab.classLi
 var top=document.getElementById('af-top');if(top)top.addEventListener('click',function(e){e.preventDefault();scrollTo({top:0,behavior:'smooth'})});
 var tk=0;function sc(){tk=0;an.classList.toggle('sc',scrollY>8)}addEventListener('scroll',function(){tk||(tk=requestAnimationFrame(sc))},{passive:true});sc();
 /* ---- language system ---- */
-var s=document.createElement('script');s.src='i18n.js?v=1';s.defer=true;s.onload=function(){PHR_I18N.init()};document.head.appendChild(s);
+var s=document.createElement('script');s.src='i18n.js?v=2';s.defer=true;s.onload=function(){PHR_I18N.init()};document.head.appendChild(s);
 })();
