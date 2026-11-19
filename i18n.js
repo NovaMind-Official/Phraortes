@@ -4,7 +4,7 @@
    PHR_I18N.collect() lists every translatable string on the current page (used to build the dictionaries). */
 (function () {
   "use strict";
-  var LANGS = { en: { n: "English", dir: "ltr" } };
+  var LANGS = { en: { n: "English", dir: "ltr" }, fa: { n: "فارسی", dir: "rtl" }, de: { n: "Deutsch", dir: "ltr" } };
   var V = "1", KEY = "phr_lang", dict = null, cur = "en", mo = null, busy = false;
   var INL = /^(A|EM|STRONG|B|I|SPAN|SMALL|BR|MARK|SUP|SUB|U|KBD|Q|TIME|ABBR|S|WBR)$/;
   var SKIP = /^(SCRIPT|STYLE|NOSCRIPT|CANVAS|SVG|CODE|PRE|TEXTAREA|INPUT|SELECT|IFRAME|PATH)$/;
@@ -72,6 +72,7 @@
   function paint(code) {
     var L = LANGS[code] || LANGS.en;
     document.documentElement.lang = code; document.documentElement.dir = L.dir || "ltr";
+    var sl = document.getElementById("lgsel"); if (sl) sl.value = code;
     [].forEach.call(document.querySelectorAll("[data-lang-now]"), function (e) { e.textContent = code.toUpperCase() });
     [].forEach.call(document.querySelectorAll("[data-lang-opt]"), function (b) { b.setAttribute("aria-checked", b.dataset.langOpt === code ? "true" : "false") });
   }

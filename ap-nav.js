@@ -22,17 +22,17 @@ var MEGA={
 var PLAIN=[['how-it-works.html','How it works'],['pricing.html','Pricing'],['learn.html','Learn']];
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 function megaHTML(k){var m=MEGA[k];return '<div class="mega" id="mega-'+k+'" role="region" aria-label="'+m.t+'"><div class="mg">'+m.cols.map(function(c){return '<div class="mc"><b>'+c[0]+'</b>'+c[1].map(function(a){return '<a href="'+a[0]+'">'+a[1]+'<small>'+a[2]+'</small></a>'}).join('')+'</div>'}).join('')+'<a class="mp" href="'+m.card[0]+'"><img src="'+m.card[1]+'" alt="" width="560" height="420" loading="lazy" decoding="async"><b>'+m.card[2]+'</b><span>'+m.card[3]+'</span></a></div></div>'}
-function langBtn(cls){return '<button class="lgb '+(cls||'')+'" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language">'+GL+'<span data-lang-now>EN</span></button>'}
+function langSel(){return '<label class="lgs">'+GL+'<select id="lgsel" aria-label="Language"><option value="en">English</option><option value="fa">فارسی</option><option value="de">Deutsch</option></select><svg class="lgc" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>'}
 function headerHTML(){
  return '<header class="an" id="an"><div class="an-in"><a class="ab" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="22" height="22">Phraortes</a>'+
  '<nav class="anl" aria-label="Main"><button class="anb hot" type="button" data-mega="agent" aria-expanded="false" aria-controls="mega-agent"><i class="hd"></i>Agent</button><a href="how-it-works.html">How it works</a><button class="anb" type="button" data-mega="features" aria-expanded="false" aria-controls="mega-features">Features</button><button class="anb" type="button" data-mega="tools" aria-expanded="false" aria-controls="mega-tools">Tools</button><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a></nav>'+
- '<span class="lgw">'+langBtn('')+'</span><a class="ag" href="'+APP+'">Try free</a><button class="abg" id="abg" type="button" aria-label="Menu" aria-expanded="false"><i></i></button></div>'+
+ '<a class="ag" href="'+APP+'">Try free</a><button class="abg" id="abg" type="button" aria-label="Menu" aria-expanded="false"><i></i></button></div>'+
  megaHTML('agent')+megaHTML('features')+megaHTML('tools')+'</header>';
 }
 function menuHTML(){
  function grp(k){var m=MEGA[k];return '<div class="am-g"><button class="am-h'+(m.hot?' hot':'')+'" type="button" aria-expanded="false">'+(m.hot?'<i class="hd"></i>':'')+m.t+'<s></s></button><div class="am-s"><div>'+m.cols.map(function(c){return c[1].map(function(a){return '<a href="'+a[0]+'">'+a[1]+'<small>'+a[2]+'</small></a>'}).join('')}).join('')+'</div></div></div>'}
  return '<div class="amenu" id="amenu">'+grp('agent')+'<a class="am-l" href="how-it-works.html">How it works</a>'+grp('features')+grp('tools')+'<a class="am-l" href="pricing.html">Pricing</a><a class="am-l" href="learn.html">Learn</a><a class="am-l" href="compare.html">Compare</a><a class="am-l" href="changelog.html">Changelog</a>'+
- '<div class="am-b"><span class="lgw">'+langBtn('big')+'</span><a class="am-cta" href="'+APP+'">Try Phraortes free</a></div></div>';
+ '<div class="am-b"><a class="am-cta" href="'+APP+'">Try Phraortes free</a></div></div>';
 }
 function footHTML(){
  function col(t,l){return '<div><b>'+t+'</b>'+l.map(function(a){return '<a href="'+a[0]+'">'+a[1]+'</a>'}).join('')+'</div>'}
@@ -41,7 +41,7 @@ function footHTML(){
  col('Product',[['features.html','Features'],['tools.html','Tools'],['how-it-works.html','How it works'],['compare.html','Compare'],['pricing.html','Pricing'],['changelog.html','Changelog']])+
  col('Learn',[['learn.html','Learn'],['learn-balance-chemical-equations.html','Balance equations'],['learn-electron-configuration.html','Electron configuration'],['learn-projectile-launch-angle.html','Projectile angle'],['learn-rc-time-constant.html','RC time constant']])+
  col('Get started',[[APP,'Open the app'],['pricing.html','Plans'],['features.html#privacy','Privacy']])+
- '</div></div><div class="af-b"><span>© Phraortes. Built entirely from a phone.</span><div class="af-r"><span class="lgw">'+langBtn('')+'</span><a href="#" id="af-top">Back to top</a></div></div></footer>';
+ '</div></div><div class="af-b"><span>© Phraortes. Built entirely from a phone.</span><div class="af-r">'+langSel()+'<a href="#" id="af-top">Back to top</a></div></div></footer>';
 }
 /* ---- build ---- */
 (function(){
@@ -50,25 +50,10 @@ function footHTML(){
  var f=document.querySelector('footer.af');if(f)f.outerHTML=footHTML();
  var hh=document.querySelector('body > div[hidden]');
 })();
-/* ---- language popover ---- */
+/* ---- language (native select) ---- */
 (function(){
- var pop=document.createElement('div');pop.className='lgp';pop.setAttribute('role','menu');pop.hidden=true;document.body.appendChild(pop);
- var open=null;
- function fill(){var L=(window.PHR_I18N&&PHR_I18N.langs)||{en:{n:'English'}};pop.innerHTML=Object.keys(L).map(function(k){return '<button type="button" role="menuitemradio" data-lang-opt="'+k+'" aria-checked="'+(k===(PHR_I18N&&PHR_I18N.get?PHR_I18N.get():'en'))+'">'+L[k].n+'<i></i></button>'}).join('')}
- function close(){pop.hidden=true;if(open)open.setAttribute('aria-expanded','false');open=null}
- document.addEventListener('click',function(e){
-  var b=e.target.closest&&e.target.closest('.lgb');
-  if(b){e.stopPropagation();if(open===b){close();return}close();open=b;b.setAttribute('aria-expanded','true');fill();pop.hidden=false;
-   var r=b.getBoundingClientRect(),w=170,left=Math.min(Math.max(8,r.right-w),innerWidth-w-8);pop.style.left=left+'px';
-   var below=r.bottom+6;pop.style.top='auto';pop.style.bottom='auto';
-   if(r.top>innerHeight/2){pop.style.bottom=(innerHeight-r.top+6)+'px'}else{pop.style.top=below+'px'}
-   return}
-  var o=e.target.closest&&e.target.closest('[data-lang-opt]');
-  if(o){if(window.PHR_I18N)PHR_I18N.set(o.dataset.langOpt);close();return}
-  if(open&&!pop.contains(e.target))close();
- });
- document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
- addEventListener('scroll',function(){if(open)close()},{passive:true});
+ document.addEventListener('change',function(e){var t=e.target;if(t&&t.id==='lgsel'&&window.PHR_I18N)PHR_I18N.set(t.value)});
+
 })();
 /* ---- header behaviour ---- */
 var an=document.getElementById('an'),dim=document.getElementById('an-dim'),bg=document.getElementById('abg'),mn=document.getElementById('amenu');if(!an)return;
