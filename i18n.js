@@ -1,12 +1,13 @@
 /* Phraortes site — language system.
-   English is the source text. To add a language: put a flat JSON map {"English text": "translation"} at lang/<code>.json
-   and register the code in LANGS below. Units are whole elements (inline tags kept), so sentences translate as sentences.
+   English is the source text. To add a language: add lang/<code>.js (it sets PHR_LANGS.<code> = {"English text": "translation"})
+   and register the code in LANGS below. Dictionaries load as plain scripts, so they work from any host and are cached by the browser. Units are whole elements (inline tags kept), so sentences translate as sentences.
    PHR_I18N.collect() lists every translatable string on the current page (used to build the dictionaries). */
 (function () {
   "use strict";
-  var LANGS = { en: { n: "English", dir: "ltr" }, fa: { n: "فارسی", dir: "rtl" }, de: { n: "Deutsch", dir: "ltr" } };
+  var LANGS = { en: { n: "English", dir: "ltr" }, fa: { n: "فارسی", dir: "rtl" }, de: { n: "Deutsch", dir: "ltr" }, ru: { n: "Русский", dir: "ltr" }, zh: { n: "中文", dir: "ltr" } };
+  window.PHR_LANGS = window.PHR_LANGS || {};
   var BASE = (function () { try { var s = document.currentScript && document.currentScript.src; return s ? s.replace(/[^\/]*(\?.*)?$/, "") : "" } catch (e) { return "" } })();
-  var V = "2", KEY = "phr_lang", dict = null, cur = "en", mo = null, busy = false;
+  var V = "3", KEY = "phr_lang", dict = null, cur = "en", mo = null, busy = false;
   var INL = /^(A|EM|STRONG|B|I|SPAN|SMALL|BR|MARK|SUP|SUB|U|KBD|Q|TIME|ABBR|S|WBR)$/;
   var SKIP = /^(SCRIPT|STYLE|NOSCRIPT|CANVAS|SVG|CODE|PRE|TEXTAREA|INPUT|SELECT|IFRAME|PATH)$/;
   var ATTR = ["alt", "title", "placeholder", "aria-label"];
@@ -77,25 +78,47 @@
     [].forEach.call(document.querySelectorAll("[data-lang-now]"), function (e) { e.textContent = code.toUpperCase() });
     [].forEach.call(document.querySelectorAll("[data-lang-opt]"), function (b) { b.setAttribute("aria-checked", b.dataset.langOpt === code ? "true" : "false") });
   }
-  function set(code, quiet) {
+  var loading = {}, token = 0;
+  function loadDict(code) {
+    if (window.PHR_LANGS[code]) return Promise.resolve(window.PHR_LANGS[code]);
+    if (loading[code]) return loading[code];
+    loading[code] = new Promise(function (res, rej) {
+      var s = document.createElement("script"); s.async = true; s.src = BASE + "lang/" + code + ".js?v=" + V;
+      s.onload = function () { window.PHR_LANGS[code] ? res(window.PHR_LANGS[code]) : rej(0) };
+      s.onerror = function () { s.remove(); rej(0) };
+      document.head.appendChild(s);
+    }).catch(function (e) { loading[code] = null; throw e });
+    return loading[code];
+  }
+  function notice(m) {
+    try { var t = document.createElement("div"); t.textContent = m; t.style.cssText = "position:fixed;left:12px;right:12px;bottom:16px;z-index:99999;background:#1b1812;color:#f1ece0;border:1px solid #e8c468;border-radius:14px;padding:12px 14px;font:13px/1.4 -apple-system,system-ui,sans-serif;text-align:center"; document.body.appendChild(t); setTimeout(function () { t.remove() }, 6000) } catch (e) { }
+  }
+  function swap(fn) {
+    var h = document.documentElement; h.classList.add("i18n-sw");
+    setTimeout(function () { try { fn() } finally { requestAnimationFrame(function () { h.classList.remove("i18n-sw") }) } }, 140);
+  }
+  function set(code) {
     if (!LANGS[code]) code = "en";
+    var my = ++token, prev = cur;
     try { localStorage.setItem(KEY, code) } catch (e) { }
-    if (code === "en") { cur = "en"; dict = null; revert(); meta(true); paint("en"); return Promise.resolve() }
-    var urls = [BASE + "lang/" + code + ".json?v=" + V, "lang/" + code + ".json?v=" + V, BASE + code + ".json?v=" + V, BASE + "lang-" + code + ".json?v=" + V];
-    function tryLoad(i) {
-      if (i >= urls.length) return Promise.reject(0);
-      return fetch(urls[i]).then(function (r) { if (!r.ok) throw 0; return r.json() }).catch(function () { return tryLoad(i + 1) });
-    }
-    return tryLoad(0).then(function (j) {
-      if (cur !== "en") revert(); dict = j; cur = code; apply(document.body); meta(false); paint(code); watch();
+    var sl = document.getElementById("lgsel"); if (sl) sl.value = code;
+    if (code === "en") { swap(function () { if (my !== token) return; cur = "en"; dict = null; revert(); meta(true); paint("en") }); return Promise.resolve() }
+    return loadDict(code).then(function (j) {
+      if (my !== token) return;
+      swap(function () {
+        if (my !== token) return;
+        if (cur !== "en") revert(); dict = j; cur = code; apply(document.body); meta(false); paint(code); watch();
+      });
     }).catch(function () {
-      cur = "en"; dict = null; paint("en");
-      try { var t = document.createElement("div"); t.textContent = "Couldn't load lang/" + code + ".json — upload it into the \"lang\" folder."; t.style.cssText = "position:fixed;left:12px;right:12px;bottom:16px;z-index:99999;background:#1b1812;color:#f1ece0;border:1px solid #e8c468;border-radius:14px;padding:12px 14px;font:13px/1.4 -apple-system,system-ui,sans-serif;text-align:center"; document.body.appendChild(t); setTimeout(function () { t.remove() }, 6000) } catch (e) { }
+      if (my !== token) return;
+      /* keep what the user sees (the previous language) and say why; the choice is NOT reset, so a retry works */
+      if (sl) sl.value = prev;
+      notice("Couldn't load the " + LANGS[code].n + " texts. Check that lang/" + code + ".js is uploaded, then try again.");
     });
   }
   function init() {
     var c = "en"; try { c = new URLSearchParams(location.search).get("lang") || localStorage.getItem(KEY) || "en" } catch (e) { }
-    paint("en"); if (c !== "en" && LANGS[c]) set(c);
+    paint("en"); if (c !== "en" && LANGS[c]) { var sl = document.getElementById("lgsel"); if (sl) sl.value = c; token++; var my = token; loadDict(c).then(function (j) { if (my !== token) return; dict = j; cur = c; apply(document.body); meta(false); paint(c); watch() }, function () { var s2 = document.getElementById("lgsel"); if (s2) s2.value = "en" }) }
   }
   window.PHR_I18N = {
     langs: LANGS, set: set, get: function () { return cur }, init: init,
