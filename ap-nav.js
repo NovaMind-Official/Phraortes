@@ -37,7 +37,7 @@ function menuHTML(){
 function footHTML(){
  function col(t,l){return '<div><b>'+t+'</b>'+l.map(function(a){return '<a href="'+a[0]+'">'+a[1]+'</a>'}).join('')+'</div>'}
  return '<footer class="af"><div class="af-w"><div class="af-br"><a class="ab" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="22" height="22">Phraortes</a><p>An AI that gets things done. Say it, and it happens.</p><a class="ag" href="'+APP+'">Open the app</a></div><div class="afg">'+
- col('Agent',[['agent.html#wake','Hey Phraortes'],['agent.html#console','Agent console'],['agent.html#keys','Keys'],['agent.html#shadow','Shadow'],['agent.html#premortem','Pre-Mortem'],['agent.html#imagine','Image studio']])+
+ col('Agent',[['agent.html#wake','Hey Phraortes'],['agent.html#console','Agent console'],['agent.html#shadow','Shadow'],['agent.html#premortem','Pre-Mortem'],['agent.html#imagine','Image studio']])+
  col('Product',[['features.html','Features'],['tools.html','Tools'],['how-it-works.html','How it works'],['compare.html','Compare'],['pricing.html','Pricing'],['changelog.html','Changelog']])+
  col('Learn',[['learn.html','Learn'],['learn-balance-chemical-equations.html','Balance equations'],['learn-electron-configuration.html','Electron configuration'],['learn-projectile-launch-angle.html','Projectile angle'],['learn-rc-time-constant.html','RC time constant']])+
  col('Get started',[[APP,'Open the app'],['pricing.html','Plans'],['features.html#privacy','Privacy']])+
