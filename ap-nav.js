@@ -5,8 +5,8 @@ var GL='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="curr
 var MEGA={
  agent:{t:'Agent',hot:1,cols:[
   ['Talk to it',[['agent.html#wake','Hey Phraortes','Hands-free, by voice'],['agent.html#console','Agent console','A cockpit that opens when you call'],['agent.html#board','Voice whiteboard','Say it, watch it drawn']]],
-  ['Make it yours',[['agent.html#keys','Keys','One word runs any task'],['agent.html#shadow','Shadow','Quiet suggestions from your habits'],['agent.html#habits','Habit Radar','Finds routines you repeat']]],
-  ['Get more done',[['agent.html#premortem','Pre-Mortem','Find how a plan fails, first'],['agent.html#capture','Capture to action','Turn anything into events and tasks'],['agent.html#imagine','Image studio','3D and photo-grade images']]]],
+  ['Make it yours',[['agent.html#imagine','Image studio','3D and photo-grade images'],['agent.html#shadow','Shadow','Quiet suggestions from your habits'],['agent.html#habits','Habit Radar','Finds routines you repeat']]],
+  ['Get more done',[['agent.html#premortem','Pre-Mortem','Find how a plan fails, first'],['agent.html#capture','Capture to action','Turn anything into events and tasks']]]],
   card:['agent.html','m-agent.webp','New · Keys, Shadow, Pre-Mortem','Say a word. It does the rest.']},
  features:{t:'Features',cols:[
   ['Think and build',[['features.html#research','Deep research','Sourced, with an evidence board'],['features.html#studio','Studio','Describe an app, run it'],['features.html#photo','Files and photos','PDFs, images, scans']]],
@@ -22,7 +22,7 @@ var MEGA={
 var PLAIN=[['how-it-works.html','How it works'],['pricing.html','Pricing'],['learn.html','Learn']];
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 function megaHTML(k){var m=MEGA[k];return '<div class="mega" id="mega-'+k+'" role="region" aria-label="'+m.t+'"><div class="mg">'+m.cols.map(function(c){return '<div class="mc"><b>'+c[0]+'</b>'+c[1].map(function(a){return '<a href="'+a[0]+'">'+a[1]+'<small>'+a[2]+'</small></a>'}).join('')+'</div>'}).join('')+'<a class="mp" href="'+m.card[0]+'"><img src="'+m.card[1]+'" alt="" width="560" height="420" loading="lazy" decoding="async"><b>'+m.card[2]+'</b><span>'+m.card[3]+'</span></a></div></div>'}
-function langSel(){return '<label class="lgs">'+GL+'<select id="lgsel" aria-label="Language"><option value="en">English</option><option value="fa">فارسی</option><option value="de">Deutsch</option><option value="ru">Русский</option><option value="zh">中文</option></select><svg class="lgc" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>'}
+function langSel(){return '<label class="lgs">'+GL+'<select id="lgsel" aria-label="Language"><option value="en">English</option><option value="fa">فارسی</option><option value="de">Deutsch</option><option value="ru">Русский</option><option value="zh">中文</option><option value="tr">Türkçe</option></select><svg class="lgc" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>'}
 function headerHTML(){
  return '<header class="an" id="an"><div class="an-in"><a class="ab" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="22" height="22">Phraortes</a>'+
  '<nav class="anl" aria-label="Main"><button class="anb hot" type="button" data-mega="agent" aria-expanded="false" aria-controls="mega-agent"><i class="hd"></i>Agent</button><a href="how-it-works.html">How it works</a><button class="anb" type="button" data-mega="features" aria-expanded="false" aria-controls="mega-features">Features</button><button class="anb" type="button" data-mega="tools" aria-expanded="false" aria-controls="mega-tools">Tools</button><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a></nav>'+
@@ -85,4 +85,31 @@ var top=document.getElementById('af-top');if(top)top.addEventListener('click',fu
 var tk=0;function sc(){tk=0;an.classList.toggle('sc',scrollY>8)}addEventListener('scroll',function(){tk||(tk=requestAnimationFrame(sc))},{passive:true});sc();
 /* ---- language system ---- */
 var s=document.createElement('script');s.src='i18n.js?v=3';s.defer=true;s.onload=function(){PHR_I18N.init()};document.head.appendChild(s);
+
+/* ---- capsule header (v2) ---- */
+(function(){var c=document.createElement('style');c.id='an2-css';c.textContent=[
+".an{background:none!important;border:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;pointer-events:none}",
+".an>*{pointer-events:auto}",
+".an-in{margin:10px auto 0!important;width:calc(100% - 24px);max-width:1040px!important;height:52px!important;border-radius:30px;padding:0 8px 0 18px!important;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.025)),rgba(18,14,8,.6);-webkit-backdrop-filter:blur(22px) saturate(1.7);backdrop-filter:blur(22px) saturate(1.7);border:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 12px 36px rgba(0,0,0,.45);transition:transform .55s cubic-bezier(.32,.72,0,1),background .4s,box-shadow .4s}",
+".an.sc .an-in{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),rgba(14,11,7,.78)}",
+".an.hid:not(.mo) .an-in{transform:translateY(-84px)}",
+".an.hid:not(.mo) .mega{opacity:0;visibility:hidden}",
+".mega{left:12px!important;right:12px!important;margin:0 auto;max-width:1040px;top:72px!important;border-radius:26px;border:1px solid rgba(255,255,255,.12)!important;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02)),rgba(16,12,7,.9)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.6);transform-origin:50% 0;transform:translateY(-10px) scale(.985)}",
+".mega.on{transform:none!important}",
+"nav.sub{top:74px!important}",
+".an.mo::after{content:'';position:fixed;inset:0;z-index:-1;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);pointer-events:auto;animation:anFade .4s ease}",
+"@keyframes anFade{from{opacity:0}to{opacity:1}}",
+".amenu{z-index:101!important;inset:auto!important;top:74px!important;left:12px!important;right:12px!important;max-height:calc(100svh - 90px);max-width:520px;margin:0 auto;border-radius:28px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),rgba(16,12,7,.92)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 30px 80px rgba(0,0,0,.65);transform-origin:50% 0;transform:translateY(-14px) scale(.96);transition:opacity .3s ease,transform .55s cubic-bezier(.32,.72,0,1),visibility 0s .55s!important;padding:8px 20px 22px!important}",
+".amenu.on{transform:none;transition:opacity .3s ease,transform .55s cubic-bezier(.32,.72,0,1)!important}",
+".amenu .am-l,.am-h{font-size:21px!important;padding:14px 0!important}",
+".amenu .am-s a{font-size:17px!important}",
+".amenu a.am-cta{border-radius:20px;margin-top:4px}",
+"@media(prefers-reduced-motion:reduce){.an-in,.amenu{transition:none!important}.an.mo::after{animation:none}}"
+].join('\n');document.head.appendChild(c)})();
+(function(){var an=document.getElementById('an');if(!an)return;var y0=scrollY,tk=0;
+addEventListener('scroll',function(){if(tk)return;tk=requestAnimationFrame(function(){tk=0;var y=scrollY,d=y-y0;
+if(y<120||d<-6)an.classList.remove('hid');else if(d>10)an.classList.add('hid');
+if(Math.abs(d)>6)y0=y;},{passive:true})},{passive:true});
+an.addEventListener('click',function(e){if(e.target===an&&an.classList.contains('mo')){var b=document.getElementById('abg');b&&b.click()}});
+})();
 })();
