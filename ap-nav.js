@@ -22,7 +22,7 @@ var MEGA={
 var PLAIN=[['how-it-works.html','How it works'],['pricing.html','Pricing'],['learn.html','Learn']];
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 function megaHTML(k){var m=MEGA[k];return '<div class="mega" id="mega-'+k+'" role="region" aria-label="'+m.t+'"><div class="mg">'+m.cols.map(function(c){return '<div class="mc"><b>'+c[0]+'</b>'+c[1].map(function(a){return '<a href="'+a[0]+'">'+a[1]+'<small>'+a[2]+'</small></a>'}).join('')+'</div>'}).join('')+'<a class="mp" href="'+m.card[0]+'"><img src="'+m.card[1]+'" alt="" width="560" height="420" loading="lazy" decoding="async"><b>'+m.card[2]+'</b><span>'+m.card[3]+'</span></a></div></div>'}
-function langSel(){return '<label class="lgs">'+GL+'<select id="lgsel" aria-label="Language"><option value="en">English</option><option value="fa">فارسی</option><option value="de">Deutsch</option><option value="ru">Русский</option><option value="zh">中文</option><option value="tr">Türkçe</option></select><svg class="lgc" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>'}
+function langSel(){return '<label class="lgs">'+GL+'<select id="lgsel" aria-label="Language"><option value="en">English</option><option value="fa">فارسی</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="ru">Русский</option><option value="zh">中文</option><option value="tr">Türkçe</option></select><svg class="lgc" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><path d="M2 4.2l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>'}
 function headerHTML(){
  return '<header class="an" id="an"><div class="an-in"><a class="ab" href="index.html"><img src="https://novamind-official.github.io/icon-192.png" alt="" width="22" height="22">Phraortes</a>'+
  '<nav class="anl" aria-label="Main"><button class="anb hot" type="button" data-mega="agent" aria-expanded="false" aria-controls="mega-agent"><i class="hd"></i>Agent</button><a href="how-it-works.html">How it works</a><button class="anb" type="button" data-mega="features" aria-expanded="false" aria-controls="mega-features">Features</button><button class="anb" type="button" data-mega="tools" aria-expanded="false" aria-controls="mega-tools">Tools</button><a href="pricing.html">Pricing</a><a href="learn.html">Learn</a></nav>'+
@@ -84,7 +84,7 @@ if(/^agent\.html$/.test(f)){var ab=an.querySelector('.anb.hot');if(ab)ab.classLi
 var top=document.getElementById('af-top');if(top)top.addEventListener('click',function(e){e.preventDefault();scrollTo({top:0,behavior:'smooth'})});
 var tk=0;function sc(){tk=0;an.classList.toggle('sc',scrollY>8)}addEventListener('scroll',function(){tk||(tk=requestAnimationFrame(sc))},{passive:true});sc();
 /* ---- language system ---- */
-var s=document.createElement('script');s.src='i18n.js?v=3';s.defer=true;s.onload=function(){PHR_I18N.init()};document.head.appendChild(s);
+var s=document.createElement('script');s.src='i18n.js?v=4';s.defer=true;s.onload=function(){PHR_I18N.init()};document.head.appendChild(s);
 
 /* ---- capsule header (v2) ---- */
 (function(){var c=document.createElement('style');c.id='an2-css';c.textContent=[
